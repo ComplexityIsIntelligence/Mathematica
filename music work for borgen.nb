@@ -1,0 +1,2601 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    129682,       2593]
+NotebookOptionsPosition[    127485,       2553]
+NotebookOutlinePosition[    127923,       2570]
+CellTagsIndexPosition[    127880,       2567]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"earth", "=", 
+   RowBox[{
+   "Import", "[", 
+    "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\earth image.jpg\>\"",
+     "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"city", "=", 
+    RowBox[{
+    "Import", "[", 
+     "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\city view.jpg\>\"", 
+     "]"}]}], ";"}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"frames", "=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"Overlay", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"ImageResize", "[", 
+          RowBox[{"city", ",", 
+           RowBox[{"Scaled", "[", "s", "]"}]}], "]"}], ",", 
+         RowBox[{"SetAlphaChannel", "[", 
+          RowBox[{"earth", ",", 
+           RowBox[{"1", "-", "s"}]}], "]"}]}], "}"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"s", ",", "0", ",", "1", ",", "0.1"}], "}"}]}], "]"}]}], ";"}],
+   "\[IndentingNewLine]"}], "\n", 
+ RowBox[{"ListAnimate", "[", "frames", "]"}]}], "Input",
+ CellChangeTimes->{{3.896242243489259*^9, 3.8962422434902544`*^9}, {
+  3.896242285287333*^9, 3.896242340094078*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"5251dd6f-caf3-4124-b5b5-53ca5ad4d572"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"faces", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Polygon", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"VertexTextureCoordinates", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "1"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], "]"}], "&"}], "/@", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1", ",", "2", ",", "4", ",", "3"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "5", ",", "6", ",", "2"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "3", ",", "7", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"8", ",", "6", ",", "5", ",", "7"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"8", ",", "7", ",", "3", ",", "4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"8", ",", "4", ",", "2", ",", "6"}], "}"}]}], "}"}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"images", "=", 
+   RowBox[{"Import", "/@", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\poor\\\\\
+impoverished image  1.jpeg\>\"", ",", 
+      "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\poor\\\\\
+impoverished city 2.jpg\>\"", ",", 
+      "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\rich\\\\rich.jpeg\>\
+\"", ",", 
+      "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\rich\\\\richer.jpg\
+\>\""}], "}"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"one", ",", "six"}], "}"}], "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Texture", "[", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ImportString", "[", 
+          RowBox[{
+           RowBox[{"ExportString", "[", 
+            RowBox[{"#1", ",", "\"\<PDF\>\""}], "]"}], ",", "\"\<PDF\>\""}], 
+          "]"}], "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ",", "1"}], "]"}], "]"}], ",", 
+        RowBox[{"Background", "->", "#2"}]}], "]"}], "]"}], "&"}], "@@@", 
+    RowBox[{"Transpose", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<1\>\"", ",", "\"\<6\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Red", ",", "Yellow"}], "}"}]}], "}"}], "]"}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"textures2", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{
+     RowBox[{"Texture", "/@", "images"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"one", ",", "six"}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{"Animate", "[", 
+  RowBox[{
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{
+     RowBox[{"Rotate", "[", 
+      RowBox[{
+       RowBox[{"GraphicsComplex", "[", 
+        RowBox[{
+         RowBox[{"Tuples", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "1"}], "}"}], ",", "3"}], "]"}], ",", 
+         RowBox[{"Transpose", "[", 
+          RowBox[{"{", 
+           RowBox[{"textures2", ",", "faces"}], "}"}], "]"}]}], "]"}], ",", 
+       "t", ",", 
+       RowBox[{
+        RowBox[{"IdentityMatrix", "[", "3", "]"}], "[", 
+        RowBox[{"[", 
+         RowBox[{"1", "+", 
+          RowBox[{"Quotient", "[", 
+           RowBox[{"t", ",", 
+            RowBox[{"2", " ", "Pi"}]}], "]"}]}], "]"}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", "1", ",", "1"}], "}"}], "/", "2"}]}], "]"}], ",", 
+     RowBox[{"Lighting", "->", "\"\<Neutral\>\""}], ",", 
+     RowBox[{"SphericalRegion", "->", "True"}], ",", 
+     RowBox[{"PlotRange", "->", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "1"}], "/", "2"}], ",", 
+          RowBox[{"3", "/", "2"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "1"}], "/", "2"}], ",", 
+          RowBox[{"3", "/", "2"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "1"}], "/", "2"}], ",", 
+          RowBox[{"3", "/", "2"}]}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"Boxed", "->", "False"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", 
+     RowBox[{"Range", "[", 
+      RowBox[{"0", ",", 
+       RowBox[{
+        RowBox[{"6", " ", "Pi"}], "-", 
+        RowBox[{"Pi", "/", "120"}]}], ",", 
+       RowBox[{"Pi", "/", "120"}]}], "]"}]}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{
+  3.8962427549448047`*^9, {3.896243286338294*^9, 3.8962433630525513`*^9}, {
+   3.8962433971763535`*^9, 3.896243448945181*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"a8e51315-134c-4407-8714-cdb359d540b2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part", "partd", 
+   "\"Part specification \\!\\(\\*RowBox[{RowBox[{\\\"{\\\", \
+GraphicsBox[TagBox[RasterBox[NumericArray[List[List[List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255]], List[List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255]], List[List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255]], \
+List[List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255]], List[List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255]], List[List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[252, 252, 252, 255], List[182, 182, 182, 255], List[66, 66, 66, 255], \
+List[8, 8, 8, 255], List[136, 136, 136, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255]], List[List[253, 253, 253, 255], List[178, 178, 178, \
+255], List[59, 59, 59, 255], List[7, 7, 7, 255], List[32, 32, 32, 255], \
+List[4, 4, 4, 255], List[134, 134, 134, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255]], List[List[253, 253, 253, 255], List[123, 123, 123, \
+255], List[50, 50, 50, 255], List[178, 178, 178, 255], List[157, 157, 157, \
+255], List[5, 5, 5, 255], List[134, 134, 134, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255]], List[List[255, 255, 255, 255], List[244, 244, 244, \
+255], List[248, 248, 248, 255], List[255, 255, 255, 255], List[160, 160, 160, \
+255], List[5, 5, 5, 255], List[134, 134, 134, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255]], List[List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[160, 160, 160, \
+255], List[5, 5, 5, 255], List[134, 134, 134, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255]], List[List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[160, 160, 160, \
+255], List[5, 5, 5, 255], List[134, 134, 134, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255]], List[List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[160, 160, 160, \
+255], List[5, 5, 5, 255], List[134, 134, 134, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255]], List[List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[160, 160, 160, \
+255], List[5, 5, 5, 255], List[134, 134, 134, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255]], List[List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[160, 160, 160, \
+255], List[5, 5, 5, 255], List[134, 134, 134, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255]], List[List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[160, 160, 160, \
+255], List[5, 5, 5, 255], List[134, 134, 134, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255]], List[List[255, 255, 255, 255], List[194, 194, 194, \
+255], List[113, 113, 113, 255], List[111, 111, 111, 255], List[73, 73, 73, \
+255], List[3, 3, 3, 255], List[63, 63, 63, 255], List[111, 111, 111, 255], \
+List[123, 123, 123, 255], List[224, 224, 224, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255]], List[List[255, 255, 255, 255], List[145, 145, 145, \
+255], List[3, 3, 3, 255], List[0, 0, 0, 255], List[0, 0, 0, 255], List[0, 0, \
+0, 255], List[0, 0, 0, 255], List[0, 0, 0, 255], List[20, 20, 20, 255], \
+List[198, 198, 198, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255]], List[List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255]], List[List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255]], List[List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255]], List[List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255]], List[List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255]], List[List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255]], List[List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255]]], \
+\\\"UnsignedInteger8\\\"], List[List[0, 24.`], List[12.`, 0]], List[0, 255], \
+Rule[ColorFunction, RGBColor]], BoxForm`ImageTag[\\\"Byte\\\", \
+Rule[ColorSpace, \\\"RGB\\\"], Rule[Interleaving, True]], Rule[Selectable, \
+False]], Rule[DefaultBaseStyle, \\\"ImageGraphics\\\"], Rule[ImageSizeRaw, \
+List[12.`, 24.`]], Rule[PlotRange, List[List[0, 12.`], List[0, 24.`]]]], \
+\\\"}\\\"}], \\\"\[LeftDoubleBracket]\\\", RowBox[{\\\"1\\\", \\\",\\\", \
+\\\"1\\\"}], \\\"\[RightDoubleBracket]\\\"}]\\) is longer than depth of \
+object.\"", 2, 7, 1, 19179215632632975334, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.896243453248108*^9},
+ CellLabel->
+  "During evaluation of \
+In[5]:=",ExpressionUUID->"c814d521-fa59-415b-ac57-90c42fafd875"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part", "partd", 
+   "\"Part specification \\!\\(\\*RowBox[{RowBox[{\\\"{\\\", \
+GraphicsBox[TagBox[RasterBox[NumericArray[List[List[List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255]], List[List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255]], List[List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255]], \
+List[List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255]], List[List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255]], List[List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[225, 225, 225, 255], List[123, 123, 123, 255], \
+List[51, 51, 51, 255], List[16, 16, 16, 255], List[6, 6, 6, 255], List[140, \
+140, 140, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255]], List[List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[191, 191, 191, 255], List[33, 33, 33, 255], List[16, 16, 16, 255], \
+List[84, 84, 84, 255], List[129, 129, 129, 255], List[143, 143, 143, 255], \
+List[204, 204, 204, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255]], List[List[255, 255, 255, 255], List[226, 226, 226, \
+255], List[50, 50, 50, 255], List[51, 51, 51, 255], List[212, 212, 212, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255]], List[List[255, 255, 255, 255], List[152, 152, 152, \
+255], List[19, 19, 19, 255], List[180, 180, 180, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255]], List[List[251, 251, 251, 255], List[89, 89, \
+89, 255], List[46, 46, 46, 255], List[226, 226, 226, 255], List[212, 212, \
+212, 255], List[179, 179, 179, 255], List[195, 195, 195, 255], List[244, 244, \
+244, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, \
+255, 255], List[255, 255, 255, 255]], List[List[238, 238, 238, 255], List[62, \
+62, 62, 255], List[27, 27, 27, 255], List[41, 41, 41, 255], List[4, 4, 4, \
+255], List[7, 7, 7, 255], List[2, 2, 2, 255], List[33, 33, 33, 255], \
+List[179, 179, 179, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255]], List[List[232, 232, 232, 255], List[51, 51, 51, \
+255], List[15, 15, 15, 255], List[117, 117, 117, 255], List[222, 222, 222, \
+255], List[253, 253, 253, 255], List[193, 193, 193, 255], List[38, 38, 38, \
+255], List[41, 41, 41, 255], List[221, 221, 221, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255]], List[List[233, 233, 233, 255], List[53, 53, \
+53, 255], List[63, 63, 63, 255], List[239, 239, 239, 255], List[255, 255, \
+255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[134, 134, \
+134, 255], List[11, 11, 11, 255], List[172, 172, 172, 255], List[255, 255, \
+255, 255], List[255, 255, 255, 255]], List[List[242, 242, 242, 255], List[67, \
+67, 67, 255], List[50, 50, 50, 255], List[231, 231, 231, 255], List[255, 255, \
+255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[159, 159, \
+159, 255], List[7, 7, 7, 255], List[162, 162, 162, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255]], List[List[253, 253, 253, 255], List[111, \
+111, 111, 255], List[22, 22, 22, 255], List[198, 198, 198, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[253, 253, 253, 255], List[118, \
+118, 118, 255], List[18, 18, 18, 255], List[191, 191, 191, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255]], List[List[255, 255, 255, 255], \
+List[193, 193, 193, 255], List[22, 22, 22, 255], List[76, 76, 76, 255], \
+List[222, 222, 222, 255], List[248, 248, 248, 255], List[166, 166, 166, 255], \
+List[25, 25, 25, 255], List[83, 83, 83, 255], List[243, 243, 243, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255]], List[List[255, 255, 255, \
+255], List[252, 252, 252, 255], List[155, 155, 155, 255], List[21, 21, 21, \
+255], List[2, 2, 2, 255], List[4, 4, 4, 255], List[6, 6, 6, 255], List[88, \
+88, 88, 255], List[228, 228, 228, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255]], List[List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[239, 239, 239, 255], \
+List[190, 190, 190, 255], List[181, 181, 181, 255], List[223, 223, 223, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255]], List[List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255]], List[List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255]], \
+List[List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255]], List[List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, \
+255, 255, 255]], List[List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, 255], \
+List[255, 255, 255, 255]], List[List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255], List[255, 255, 255, 255], List[255, 255, 255, \
+255], List[255, 255, 255, 255]]], \\\"UnsignedInteger8\\\"], List[List[0, \
+24.`], List[12.`, 0]], List[0, 255], Rule[ColorFunction, RGBColor]], \
+BoxForm`ImageTag[\\\"Byte\\\", Rule[ColorSpace, \\\"RGB\\\"], \
+Rule[Interleaving, True]], Rule[Selectable, False]], Rule[DefaultBaseStyle, \
+\\\"ImageGraphics\\\"], Rule[ImageSizeRaw, List[12.`, 24.`]], Rule[PlotRange, \
+List[List[0, 12.`], List[0, 24.`]]]], \\\"}\\\"}], \\\"\[LeftDoubleBracket]\\\
+\", RowBox[{\\\"1\\\", \\\",\\\", \\\"1\\\"}], \
+\\\"\[RightDoubleBracket]\\\"}]\\) is longer than depth of object.\"", 2, 7, 
+   2, 19179215632632975334, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.896243453428377*^9},
+ CellLabel->
+  "During evaluation of \
+In[5]:=",ExpressionUUID->"9f03809c-3aad-4e13-9609-3dad5465b215"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"faces", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Polygon", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{"VertexTextureCoordinates", "->", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", "0"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "0"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], "]"}], "&"}], "/@", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "2", ",", "4", ",", "3"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "5", ",", "6", ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3", ",", "7", ",", "5"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"8", ",", "6", ",", "5", ",", "7"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"8", ",", "7", ",", "3", ",", "4"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"8", ",", "4", ",", "2", ",", "6"}], "}"}]}], "}"}]}]}], 
+     ";"}], "\n", 
+    RowBox[{
+     RowBox[{"images", "=", 
+      RowBox[{"Import", "/@", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\rich\\\\rich \
+image 1.webp\>\"", ",", 
+         "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\rich\\\\rich.\
+jpeg\>\"", ",", 
+         "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\rich\\\\richer.\
+jpg\>\"", ",", 
+         "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\poor\\\\\
+impoverished city 2.jpg\>\"", ",", 
+         "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\poor\\\\\
+impoverished city 3.jpeg\>\"", ",", 
+         "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\poor\\\\\
+impoverished image  1.jpeg\>\""}], "}"}]}]}], ";"}], "\n", 
+    RowBox[{
+     RowBox[{"textures2", "=", 
+      RowBox[{"Texture", "/@", "images"}]}], ";"}], "\n", 
+    RowBox[{
+     RowBox[{"backgroundImage", "=", 
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\stars.jpg\>\"", 
+       "]"}]}], ";"}], "\n", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{"sound", "=", 
+       RowBox[{
+       "Import", "[", 
+        "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\10 second intro \
+music.mp3\>\"", "]"}]}], ";", "\n", 
+      RowBox[{"Animate", "[", 
+       RowBox[{
+        RowBox[{"EmitSound", "[", "sound", "]"}], ";"}]}]}], "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Graphics3D", "[", 
+      RowBox[{
+       RowBox[{"Rotate", "[", 
+        RowBox[{
+         RowBox[{"GraphicsComplex", "[", 
+          RowBox[{
+           RowBox[{"Tuples", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", "1"}], "}"}], ",", "3"}], "]"}], ",", 
+           RowBox[{"Transpose", "[", 
+            RowBox[{"{", 
+             RowBox[{"textures2", ",", "faces"}], "}"}], "]"}]}], "]"}], ",", 
+         "t", ",", 
+         RowBox[{
+          RowBox[{"IdentityMatrix", "[", "3", "]"}], "[", 
+          RowBox[{"[", 
+           RowBox[{"1", "+", 
+            RowBox[{"Quotient", "[", 
+             RowBox[{"t", ",", 
+              RowBox[{"2", " ", "Pi"}]}], "]"}]}], "]"}], "]"}], ",", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"1", ",", "1", ",", "1"}], "}"}], "/", "2"}]}], "]"}], ",", 
+       RowBox[{"Lighting", "->", "\"\<Neutral\>\""}], ",", 
+       RowBox[{"SphericalRegion", "->", "True"}], ",", 
+       RowBox[{"PlotRange", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"-", "1"}], "/", "2"}], ",", 
+            RowBox[{"3", "/", "2"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"-", "1"}], "/", "2"}], ",", 
+            RowBox[{"3", "/", "2"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"-", "1"}], "/", "2"}], ",", 
+            RowBox[{"3", "/", "2"}]}], "}"}]}], "}"}]}], ",", 
+       RowBox[{"Boxed", "->", "False"}], ",", 
+       RowBox[{"Background", "->", "backgroundImage"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", 
+       RowBox[{"Range", "[", 
+        RowBox[{"0", ",", 
+         RowBox[{
+          RowBox[{"6", " ", "Pi"}], "-", 
+          RowBox[{"Pi", "/", "120"}]}], ",", 
+         RowBox[{"Pi", "/", "60"}]}], "]"}]}], "}"}]}]}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Animate", "[", 
+   RowBox[{
+    RowBox[{"Graphics3D", "[", 
+     RowBox[{
+      RowBox[{"Rotate", "[", 
+       RowBox[{
+        RowBox[{"GraphicsComplex", "[", 
+         RowBox[{
+          RowBox[{"Tuples", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "1"}], "}"}], ",", "3"}], "]"}], ",", 
+          RowBox[{"Transpose", "[", 
+           RowBox[{"{", 
+            RowBox[{"textures2", ",", "faces"}], "}"}], "]"}]}], "]"}], ",", 
+        "t", ",", 
+        RowBox[{
+         RowBox[{"IdentityMatrix", "[", "3", "]"}], "[", 
+         RowBox[{"[", 
+          RowBox[{"1", "+", 
+           RowBox[{"Quotient", "[", 
+            RowBox[{"t", ",", 
+             RowBox[{"2", " ", "Pi"}]}], "]"}]}], "]"}], "]"}], ",", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1", ",", "1"}], "}"}], "/", "2"}]}], "]"}], ",", 
+      RowBox[{"Lighting", "->", "\"\<Neutral\>\""}], ",", 
+      RowBox[{"SphericalRegion", "->", "True"}], ",", 
+      RowBox[{"PlotRange", "->", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "1"}], "/", "2"}], ",", 
+           RowBox[{"3", "/", "2"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "1"}], "/", "2"}], ",", 
+           RowBox[{"3", "/", "2"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "1"}], "/", "2"}], ",", 
+           RowBox[{"3", "/", "2"}]}], "}"}]}], "}"}]}], ",", 
+      RowBox[{"Boxed", "->", "False"}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", 
+      RowBox[{"Range", "[", 
+       RowBox[{"0", ",", 
+        RowBox[{
+         RowBox[{"6", " ", "Pi"}], "-", 
+         RowBox[{"Pi", "/", "120"}]}], ",", 
+        RowBox[{"Pi", "/", "60"}]}], "]"}]}], "}"}]}], "]"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.8962440304584475`*^9, 3.896244042915559*^9}, {
+  3.896244096468707*^9, 3.8962441171290216`*^9}, {3.8962441718515687`*^9, 
+  3.8962442150220737`*^9}, {3.896244255863675*^9, 3.8962443317168336`*^9}, {
+  3.896244390641718*^9, 3.8962444045512657`*^9}, {3.896244610551942*^9, 
+  3.8962446216399994`*^9}, {3.896244872341755*^9, 3.8962448836530647`*^9}, {
+  3.896245868980157*^9, 3.896245876935506*^9}, {3.8962800421236367`*^9, 
+  3.89628005186088*^9}, {3.8962820224170465`*^9, 3.896282023038046*^9}, {
+  3.896305884277261*^9, 3.8963058857428265`*^9}},
+ EmphasizeSyntaxErrors->
+  True,ExpressionUUID->"a06ae2f7-9762-419c-9d50-5aeacc10fad6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"faces", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Polygon", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{"VertexTextureCoordinates", "->", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], "]"}], "&"}], "/@", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", "2", ",", "4", ",", "3"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "5", ",", "6", ",", "2"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "3", ",", "7", ",", "5"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"8", ",", "6", ",", "5", ",", "7"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"8", ",", "7", ",", "3", ",", "4"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"8", ",", "4", ",", "2", ",", "6"}], "}"}]}], "}"}]}]}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"images", "=", 
+     RowBox[{"Import", "/@", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\rich\\\\rich \
+image 1.webp\>\"", ",", 
+        "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\rich\\\\rich.\
+jpeg\>\"", ",", 
+        "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\rich\\\\richer.\
+jpg\>\"", ",", 
+        "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\poor\\\\\
+impoverished city 2.jpg\>\"", ",", 
+        "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\poor\\\\\
+impoverished city 3.jpeg\>\"", ",", 
+        "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\poor\\\\\
+impoverished image  1.jpeg\>\""}], "}"}]}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"textures2", "=", 
+     RowBox[{"Texture", "/@", "images"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"backgroundImage", "=", 
+     RowBox[{
+     "Import", "[", 
+      "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\stars.jpg\>\"", 
+      "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"sound", "=", 
+     RowBox[{"Sound", "[", 
+      RowBox[{
+       RowBox[{
+       "Import", "[", 
+        "\"\<C:\\\\Users\\\\ali12\\\\Downloads\\\\NKM-G-10-773-2971142058-0-\
+13645-92-92-4-2650-52-0-1-901-0-0-0-0-0-0-0-0-0.mp3\>\"", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "10"}], "}"}]}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"cube", "=", 
+     RowBox[{"GraphicsComplex", "[", 
+      RowBox[{
+       RowBox[{"Tuples", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}], ",", "3"}], "]"}], ",", 
+       RowBox[{"Transpose", "[", 
+        RowBox[{"{", 
+         RowBox[{"textures2", ",", "faces"}], "}"}], "]"}]}], "]"}]}], ";"}], 
+   "\n", 
+   RowBox[{
+    RowBox[{"Animate", "[", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"t", "<", "3"}], ",", 
+        RowBox[{"Show", "[", 
+         RowBox[{
+          RowBox[{"Graphics3D", "[", 
+           RowBox[{
+            RowBox[{"Rotate", "[", 
+             RowBox[{"cube", ",", "t", ",", 
+              RowBox[{
+               RowBox[{"IdentityMatrix", "[", "3", "]"}], "[", 
+               RowBox[{"[", 
+                RowBox[{"1", "+", 
+                 RowBox[{"Quotient", "[", 
+                  RowBox[{"t", ",", 
+                   RowBox[{"2", " ", "Pi"}]}], "]"}]}], "]"}], "]"}], ",", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1", ",", "1"}], "}"}], "/", "2"}]}], "]"}],
+             ",", 
+            RowBox[{"Lighting", "->", "\"\<Neutral\>\""}], ",", 
+            RowBox[{"SphericalRegion", "->", "True"}], ",", 
+            RowBox[{"PlotRange", "->", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "1"}], "/", "2"}], ",", 
+                 RowBox[{"3", "/", "2"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "1"}], "/", "2"}], ",", 
+                 RowBox[{"3", "/", "2"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "1"}], "/", "2"}], ",", 
+                 RowBox[{"3", "/", "2"}]}], "}"}]}], "}"}]}], ",", 
+            RowBox[{"Boxed", "->", "False"}], ",", 
+            RowBox[{"Background", "->", "backgroundImage"}]}], "]"}], ",", 
+          RowBox[{"EmitSound", "[", "sound", "]"}]}], "]"}], ",", 
+        RowBox[{"Show", "[", 
+         RowBox[{"Graphics3D", "[", 
+          RowBox[{
+           RowBox[{"Rotate", "[", 
+            RowBox[{"cube", ",", 
+             RowBox[{"t", "-", "t"}], ",", 
+             RowBox[{
+              RowBox[{"IdentityMatrix", "[", "3", "]"}], "[", 
+              RowBox[{"[", 
+               RowBox[{"1", "+", 
+                RowBox[{"Quotient", "[", 
+                 RowBox[{
+                  RowBox[{"t", "-", "t"}], ",", 
+                  RowBox[{"2", " ", "Pi"}]}], "]"}]}], "]"}], "]"}], ",", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"1", ",", "1", ",", "1"}], "}"}], "/", "2"}]}], "]"}], 
+           ",", 
+           RowBox[{"Lighting", "->", "\"\<Neutral\>\""}], ",", 
+           RowBox[{"SphericalRegion", "->", "True"}], ",", 
+           RowBox[{"PlotRange", "->", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "1"}], "/", "2"}], "-", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}], ",", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"3", "/", "2"}], ")"}], "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}]}], "}"}], 
+              ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "1"}], "/", "2"}], "-", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}], ",", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"3", "/", "2"}], ")"}], "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}]}], "}"}], 
+              ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "1"}], "/", "2"}], "-", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}], ",", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"3", "/", "2"}], ")"}], "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}]}], "}"}]}], 
+             "}"}]}], ",", 
+           RowBox[{"Boxed", "->", "False"}], ",", 
+           RowBox[{"Background", "->", "backgroundImage"}]}], "]"}], "]"}]}], 
+       "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", 
+        RowBox[{"Range", "[", 
+         RowBox[{"0", ",", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"6", " ", "Pi"}], "-", 
+             RowBox[{"Pi", "/", "120"}]}], ")"}], "+", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"6", " ", "Pi"}], "-", 
+             RowBox[{"Pi", "/", "120"}]}], ")"}]}], ",", 
+          RowBox[{"Pi", "/", "60"}]}], "]"}]}], "}"}]}], "]"}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{"animatedObjectCube", "=", 
+    RowBox[{"Animate", "[", 
+     RowBox[{
+      RowBox[{"Graphics3D", "[", 
+       RowBox[{
+        RowBox[{"Rotate", "[", 
+         RowBox[{
+          RowBox[{"GraphicsComplex", "[", 
+           RowBox[{
+            RowBox[{"Tuples", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "1"}], "}"}], ",", "3"}], "]"}], ",", 
+            RowBox[{"Transpose", "[", 
+             RowBox[{"{", 
+              RowBox[{"textures2", ",", "faces"}], "}"}], "]"}]}], "]"}], ",",
+           "t", ",", 
+          RowBox[{
+           RowBox[{"IdentityMatrix", "[", "3", "]"}], "[", 
+           RowBox[{"[", 
+            RowBox[{"1", "+", 
+             RowBox[{"Quotient", "[", 
+              RowBox[{"t", ",", 
+               RowBox[{"2", " ", "Pi"}]}], "]"}]}], "]"}], "]"}], ",", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1", ",", "1", ",", "1"}], "}"}], "/", "2"}]}], "]"}], 
+        ",", 
+        RowBox[{"Lighting", "->", "\"\<Neutral\>\""}], ",", 
+        RowBox[{"SphericalRegion", "->", "True"}], ",", 
+        RowBox[{"PlotRange", "->", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "1"}], "/", "2"}], ",", 
+             RowBox[{"3", "/", "2"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "1"}], "/", "2"}], ",", 
+             RowBox[{"3", "/", "2"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "1"}], "/", "2"}], ",", 
+             RowBox[{"3", "/", "2"}]}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"Boxed", "->", "False"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", 
+        RowBox[{"Range", "[", 
+         RowBox[{"0", ",", 
+          RowBox[{
+           RowBox[{"6", " ", "Pi"}], "-", 
+           RowBox[{"Pi", "/", "120"}]}], ",", 
+          RowBox[{"Pi", "/", "60"}]}], "]"}]}], "}"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"Head", "[", "animatedObjectCube", "]"}], "\[IndentingNewLine]", 
+   RowBox[{"Export", "[", 
+    RowBox[{"\"\<al.gif\>\"", ",", "animatedObjectCube"}], "]"}]}]}]], "Input",
+ CellFrame->{{0, 0}, {0, 3}},
+ CellFrameColor->GrayLevel[0.75],
+ CellChangeTimes->{{3.8962477967836857`*^9, 3.896247819977801*^9}, {
+   3.896247866404002*^9, 3.896247870141119*^9}, {3.8962479116427984`*^9, 
+   3.8962479630868835`*^9}, {3.896248038762353*^9, 3.8962481543210635`*^9}, {
+   3.8962481895042777`*^9, 3.8962482098053846`*^9}, {3.896248345034873*^9, 
+   3.89624835391988*^9}, {3.8962820249747863`*^9, 3.8962820255998087`*^9}, 
+   3.8963041045391808`*^9, {3.8963043863439655`*^9, 3.8963044390143642`*^9}, 
+   3.8963054951174393`*^9, {3.8963055564428225`*^9, 3.896305581661789*^9}, {
+   3.896305800773712*^9, 3.89630583598977*^9}, 3.8963058810653143`*^9, {
+   3.896306574018598*^9, 3.8963065861651764`*^9}, {3.896306719300609*^9, 
+   3.896306728880773*^9}, {3.896306774806572*^9, 3.896306780938942*^9}},
+ CellLabel->
+  "In[112]:=",ExpressionUUID->"8c278331-a69a-43f2-a0ed-11b62d65d0dd"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 0, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], {
+      0, Rational[1, 60] Pi, Rational[1, 30] Pi, Rational[1, 20] Pi, 
+       Rational[1, 15] Pi, Rational[1, 12] Pi, Rational[1, 10] Pi, 
+       Rational[7, 60] Pi, Rational[2, 15] Pi, Rational[3, 20] Pi, 
+       Rational[1, 6] Pi, Rational[11, 60] Pi, Rational[1, 5] Pi, 
+       Rational[13, 60] Pi, Rational[7, 30] Pi, Rational[1, 4] Pi, 
+       Rational[4, 15] Pi, Rational[17, 60] Pi, Rational[3, 10] Pi, 
+       Rational[19, 60] Pi, Rational[1, 3] Pi, Rational[7, 20] Pi, 
+       Rational[11, 30] Pi, Rational[23, 60] Pi, Rational[2, 5] Pi, 
+       Rational[5, 12] Pi, Rational[13, 30] Pi, Rational[9, 20] Pi, 
+       Rational[7, 15] Pi, Rational[29, 60] Pi, Rational[1, 2] Pi, 
+       Rational[31, 60] Pi, Rational[8, 15] Pi, Rational[11, 20] Pi, 
+       Rational[17, 30] Pi, Rational[7, 12] Pi, Rational[3, 5] Pi, 
+       Rational[37, 60] Pi, Rational[19, 30] Pi, Rational[13, 20] Pi, 
+       Rational[2, 3] Pi, Rational[41, 60] Pi, Rational[7, 10] Pi, 
+       Rational[43, 60] Pi, Rational[11, 15] Pi, Rational[3, 4] Pi, 
+       Rational[23, 30] Pi, Rational[47, 60] Pi, Rational[4, 5] Pi, 
+       Rational[49, 60] Pi, Rational[5, 6] Pi, Rational[17, 20] Pi, 
+       Rational[13, 15] Pi, Rational[53, 60] Pi, Rational[9, 10] Pi, 
+       Rational[11, 12] Pi, Rational[14, 15] Pi, Rational[19, 20] Pi, 
+       Rational[29, 30] Pi, Rational[59, 60] Pi, Pi, Rational[61, 60] Pi, 
+       Rational[31, 30] Pi, Rational[21, 20] Pi, Rational[16, 15] Pi, 
+       Rational[13, 12] Pi, Rational[11, 10] Pi, Rational[67, 60] Pi, 
+       Rational[17, 15] Pi, Rational[23, 20] Pi, Rational[7, 6] Pi, 
+       Rational[71, 60] Pi, Rational[6, 5] Pi, Rational[73, 60] Pi, 
+       Rational[37, 30] Pi, Rational[5, 4] Pi, Rational[19, 15] Pi, 
+       Rational[77, 60] Pi, Rational[13, 10] Pi, Rational[79, 60] Pi, 
+       Rational[4, 3] Pi, Rational[27, 20] Pi, Rational[41, 30] Pi, 
+       Rational[83, 60] Pi, Rational[7, 5] Pi, Rational[17, 12] Pi, 
+       Rational[43, 30] Pi, Rational[29, 20] Pi, Rational[22, 15] Pi, 
+       Rational[89, 60] Pi, Rational[3, 2] Pi, Rational[91, 60] Pi, 
+       Rational[23, 15] Pi, Rational[31, 20] Pi, Rational[47, 30] Pi, 
+       Rational[19, 12] Pi, Rational[8, 5] Pi, Rational[97, 60] Pi, 
+       Rational[49, 30] Pi, Rational[33, 20] Pi, Rational[5, 3] Pi, 
+       Rational[101, 60] Pi, Rational[17, 10] Pi, Rational[103, 60] Pi, 
+       Rational[26, 15] Pi, Rational[7, 4] Pi, Rational[53, 30] Pi, 
+       Rational[107, 60] Pi, Rational[9, 5] Pi, Rational[109, 60] Pi, 
+       Rational[11, 6] Pi, Rational[37, 20] Pi, Rational[28, 15] Pi, 
+       Rational[113, 60] Pi, Rational[19, 10] Pi, Rational[23, 12] Pi, 
+       Rational[29, 15] Pi, Rational[39, 20] Pi, Rational[59, 30] Pi, 
+       Rational[119, 60] Pi, 2 Pi, Rational[121, 60] Pi, Rational[61, 30] Pi, 
+       Rational[41, 20] Pi, Rational[31, 15] Pi, Rational[25, 12] Pi, 
+       Rational[21, 10] Pi, Rational[127, 60] Pi, Rational[32, 15] Pi, 
+       Rational[43, 20] Pi, Rational[13, 6] Pi, Rational[131, 60] Pi, 
+       Rational[11, 5] Pi, Rational[133, 60] Pi, Rational[67, 30] Pi, 
+       Rational[9, 4] Pi, Rational[34, 15] Pi, Rational[137, 60] Pi, 
+       Rational[23, 10] Pi, Rational[139, 60] Pi, Rational[7, 3] Pi, 
+       Rational[47, 20] Pi, Rational[71, 30] Pi, Rational[143, 60] Pi, 
+       Rational[12, 5] Pi, Rational[29, 12] Pi, Rational[73, 30] Pi, 
+       Rational[49, 20] Pi, Rational[37, 15] Pi, Rational[149, 60] Pi, 
+       Rational[5, 2] Pi, Rational[151, 60] Pi, Rational[38, 15] Pi, 
+       Rational[51, 20] Pi, Rational[77, 30] Pi, Rational[31, 12] Pi, 
+       Rational[13, 5] Pi, Rational[157, 60] Pi, Rational[79, 30] Pi, 
+       Rational[53, 20] Pi, Rational[8, 3] Pi, Rational[161, 60] Pi, 
+       Rational[27, 10] Pi, Rational[163, 60] Pi, Rational[41, 15] Pi, 
+       Rational[11, 4] Pi, Rational[83, 30] Pi, Rational[167, 60] Pi, 
+       Rational[14, 5] Pi, Rational[169, 60] Pi, Rational[17, 6] Pi, 
+       Rational[57, 20] Pi, Rational[43, 15] Pi, Rational[173, 60] Pi, 
+       Rational[29, 10] Pi, Rational[35, 12] Pi, Rational[44, 15] Pi, 
+       Rational[59, 20] Pi, Rational[89, 30] Pi, Rational[179, 60] Pi, 3 Pi, 
+       Rational[181, 60] Pi, Rational[91, 30] Pi, Rational[61, 20] Pi, 
+       Rational[46, 15] Pi, Rational[37, 12] Pi, Rational[31, 10] Pi, 
+       Rational[187, 60] Pi, Rational[47, 15] Pi, Rational[63, 20] Pi, 
+       Rational[19, 6] Pi, Rational[191, 60] Pi, Rational[16, 5] Pi, 
+       Rational[193, 60] Pi, Rational[97, 30] Pi, Rational[13, 4] Pi, 
+       Rational[49, 15] Pi, Rational[197, 60] Pi, Rational[33, 10] Pi, 
+       Rational[199, 60] Pi, Rational[10, 3] Pi, Rational[67, 20] Pi, 
+       Rational[101, 30] Pi, Rational[203, 60] Pi, Rational[17, 5] Pi, 
+       Rational[41, 12] Pi, Rational[103, 30] Pi, Rational[69, 20] Pi, 
+       Rational[52, 15] Pi, Rational[209, 60] Pi, Rational[7, 2] Pi, 
+       Rational[211, 60] Pi, Rational[53, 15] Pi, Rational[71, 20] Pi, 
+       Rational[107, 30] Pi, Rational[43, 12] Pi, Rational[18, 5] Pi, 
+       Rational[217, 60] Pi, Rational[109, 30] Pi, Rational[73, 20] Pi, 
+       Rational[11, 3] Pi, Rational[221, 60] Pi, Rational[37, 10] Pi, 
+       Rational[223, 60] Pi, Rational[56, 15] Pi, Rational[15, 4] Pi, 
+       Rational[113, 30] Pi, Rational[227, 60] Pi, Rational[19, 5] Pi, 
+       Rational[229, 60] Pi, Rational[23, 6] Pi, Rational[77, 20] Pi, 
+       Rational[58, 15] Pi, Rational[233, 60] Pi, Rational[39, 10] Pi, 
+       Rational[47, 12] Pi, Rational[59, 15] Pi, Rational[79, 20] Pi, 
+       Rational[119, 30] Pi, Rational[239, 60] Pi, 4 Pi, Rational[241, 60] Pi,
+        Rational[121, 30] Pi, Rational[81, 20] Pi, Rational[61, 15] Pi, 
+       Rational[49, 12] Pi, Rational[41, 10] Pi, Rational[247, 60] Pi, 
+       Rational[62, 15] Pi, Rational[83, 20] Pi, Rational[25, 6] Pi, 
+       Rational[251, 60] Pi, Rational[21, 5] Pi, Rational[253, 60] Pi, 
+       Rational[127, 30] Pi, Rational[17, 4] Pi, Rational[64, 15] Pi, 
+       Rational[257, 60] Pi, Rational[43, 10] Pi, Rational[259, 60] Pi, 
+       Rational[13, 3] Pi, Rational[87, 20] Pi, Rational[131, 30] Pi, 
+       Rational[263, 60] Pi, Rational[22, 5] Pi, Rational[53, 12] Pi, 
+       Rational[133, 30] Pi, Rational[89, 20] Pi, Rational[67, 15] Pi, 
+       Rational[269, 60] Pi, Rational[9, 2] Pi, Rational[271, 60] Pi, 
+       Rational[68, 15] Pi, Rational[91, 20] Pi, Rational[137, 30] Pi, 
+       Rational[55, 12] Pi, Rational[23, 5] Pi, Rational[277, 60] Pi, 
+       Rational[139, 30] Pi, Rational[93, 20] Pi, Rational[14, 3] Pi, 
+       Rational[281, 60] Pi, Rational[47, 10] Pi, Rational[283, 60] Pi, 
+       Rational[71, 15] Pi, Rational[19, 4] Pi, Rational[143, 30] Pi, 
+       Rational[287, 60] Pi, Rational[24, 5] Pi, Rational[289, 60] Pi, 
+       Rational[29, 6] Pi, Rational[97, 20] Pi, Rational[73, 15] Pi, 
+       Rational[293, 60] Pi, Rational[49, 10] Pi, Rational[59, 12] Pi, 
+       Rational[74, 15] Pi, Rational[99, 20] Pi, Rational[149, 30] Pi, 
+       Rational[299, 60] Pi, 5 Pi, Rational[301, 60] Pi, Rational[151, 30] Pi,
+        Rational[101, 20] Pi, Rational[76, 15] Pi, Rational[61, 12] Pi, 
+       Rational[51, 10] Pi, Rational[307, 60] Pi, Rational[77, 15] Pi, 
+       Rational[103, 20] Pi, Rational[31, 6] Pi, Rational[311, 60] Pi, 
+       Rational[26, 5] Pi, Rational[313, 60] Pi, Rational[157, 30] Pi, 
+       Rational[21, 4] Pi, Rational[79, 15] Pi, Rational[317, 60] Pi, 
+       Rational[53, 10] Pi, Rational[319, 60] Pi, Rational[16, 3] Pi, 
+       Rational[107, 20] Pi, Rational[161, 30] Pi, Rational[323, 60] Pi, 
+       Rational[27, 5] Pi, Rational[65, 12] Pi, Rational[163, 30] Pi, 
+       Rational[109, 20] Pi, Rational[82, 15] Pi, Rational[329, 60] Pi, 
+       Rational[11, 2] Pi, Rational[331, 60] Pi, Rational[83, 15] Pi, 
+       Rational[111, 20] Pi, Rational[167, 30] Pi, Rational[67, 12] Pi, 
+       Rational[28, 5] Pi, Rational[337, 60] Pi, Rational[169, 30] Pi, 
+       Rational[113, 20] Pi, Rational[17, 3] Pi, Rational[341, 60] Pi, 
+       Rational[57, 10] Pi, Rational[343, 60] Pi, Rational[86, 15] Pi, 
+       Rational[23, 4] Pi, Rational[173, 30] Pi, Rational[347, 60] Pi, 
+       Rational[29, 5] Pi, Rational[349, 60] Pi, Rational[35, 6] Pi, 
+       Rational[117, 20] Pi, Rational[88, 15] Pi, Rational[353, 60] Pi, 
+       Rational[59, 10] Pi, Rational[71, 12] Pi, Rational[89, 15] Pi, 
+       Rational[119, 20] Pi, Rational[179, 30] Pi, Rational[359, 60] Pi}}}, 
+    Typeset`size$$ = {324., {160., 164.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Graphics3D[
+        Rotate[
+         GraphicsComplex[
+          Tuples[{0, 1}, 3], 
+          
+          Transpose[{$CellContext`textures2, $CellContext`faces}]], \
+$CellContext`t$$, 
+         Part[
+          IdentityMatrix[3], 1 + Quotient[$CellContext`t$$, 2 Pi]], {1, 1, 1}/
+         2], Lighting -> "Neutral", SphericalRegion -> True, 
+        PlotRange -> {{(-1)/2, 3/2}, {(-1)/2, 3/2}, {(-1)/2, 3/2}}, Boxed -> 
+        False], "Specifications" :> {{$CellContext`t$$, {
+         0, Rational[1, 60] Pi, Rational[1, 30] Pi, Rational[1, 20] Pi, 
+          Rational[1, 15] Pi, Rational[1, 12] Pi, Rational[1, 10] Pi, 
+          Rational[7, 60] Pi, Rational[2, 15] Pi, Rational[3, 20] Pi, 
+          Rational[1, 6] Pi, Rational[11, 60] Pi, Rational[1, 5] Pi, 
+          Rational[13, 60] Pi, Rational[7, 30] Pi, Rational[1, 4] Pi, 
+          Rational[4, 15] Pi, Rational[17, 60] Pi, Rational[3, 10] Pi, 
+          Rational[19, 60] Pi, Rational[1, 3] Pi, Rational[7, 20] Pi, 
+          Rational[11, 30] Pi, Rational[23, 60] Pi, Rational[2, 5] Pi, 
+          Rational[5, 12] Pi, Rational[13, 30] Pi, Rational[9, 20] Pi, 
+          Rational[7, 15] Pi, Rational[29, 60] Pi, Rational[1, 2] Pi, 
+          Rational[31, 60] Pi, Rational[8, 15] Pi, Rational[11, 20] Pi, 
+          Rational[17, 30] Pi, Rational[7, 12] Pi, Rational[3, 5] Pi, 
+          Rational[37, 60] Pi, Rational[19, 30] Pi, Rational[13, 20] Pi, 
+          Rational[2, 3] Pi, Rational[41, 60] Pi, Rational[7, 10] Pi, 
+          Rational[43, 60] Pi, Rational[11, 15] Pi, Rational[3, 4] Pi, 
+          Rational[23, 30] Pi, Rational[47, 60] Pi, Rational[4, 5] Pi, 
+          Rational[49, 60] Pi, Rational[5, 6] Pi, Rational[17, 20] Pi, 
+          Rational[13, 15] Pi, Rational[53, 60] Pi, Rational[9, 10] Pi, 
+          Rational[11, 12] Pi, Rational[14, 15] Pi, Rational[19, 20] Pi, 
+          Rational[29, 30] Pi, Rational[59, 60] Pi, Pi, Rational[61, 60] Pi, 
+          Rational[31, 30] Pi, Rational[21, 20] Pi, Rational[16, 15] Pi, 
+          Rational[13, 12] Pi, Rational[11, 10] Pi, Rational[67, 60] Pi, 
+          Rational[17, 15] Pi, Rational[23, 20] Pi, Rational[7, 6] Pi, 
+          Rational[71, 60] Pi, Rational[6, 5] Pi, Rational[73, 60] Pi, 
+          Rational[37, 30] Pi, Rational[5, 4] Pi, Rational[19, 15] Pi, 
+          Rational[77, 60] Pi, Rational[13, 10] Pi, Rational[79, 60] Pi, 
+          Rational[4, 3] Pi, Rational[27, 20] Pi, Rational[41, 30] Pi, 
+          Rational[83, 60] Pi, Rational[7, 5] Pi, Rational[17, 12] Pi, 
+          Rational[43, 30] Pi, Rational[29, 20] Pi, Rational[22, 15] Pi, 
+          Rational[89, 60] Pi, Rational[3, 2] Pi, Rational[91, 60] Pi, 
+          Rational[23, 15] Pi, Rational[31, 20] Pi, Rational[47, 30] Pi, 
+          Rational[19, 12] Pi, Rational[8, 5] Pi, Rational[97, 60] Pi, 
+          Rational[49, 30] Pi, Rational[33, 20] Pi, Rational[5, 3] Pi, 
+          Rational[101, 60] Pi, Rational[17, 10] Pi, Rational[103, 60] Pi, 
+          Rational[26, 15] Pi, Rational[7, 4] Pi, Rational[53, 30] Pi, 
+          Rational[107, 60] Pi, Rational[9, 5] Pi, Rational[109, 60] Pi, 
+          Rational[11, 6] Pi, Rational[37, 20] Pi, Rational[28, 15] Pi, 
+          Rational[113, 60] Pi, Rational[19, 10] Pi, Rational[23, 12] Pi, 
+          Rational[29, 15] Pi, Rational[39, 20] Pi, Rational[59, 30] Pi, 
+          Rational[119, 60] Pi, 2 Pi, Rational[121, 60] Pi, Rational[61, 30] 
+          Pi, Rational[41, 20] Pi, Rational[31, 15] Pi, Rational[25, 12] Pi, 
+          Rational[21, 10] Pi, Rational[127, 60] Pi, Rational[32, 15] Pi, 
+          Rational[43, 20] Pi, Rational[13, 6] Pi, Rational[131, 60] Pi, 
+          Rational[11, 5] Pi, Rational[133, 60] Pi, Rational[67, 30] Pi, 
+          Rational[9, 4] Pi, Rational[34, 15] Pi, Rational[137, 60] Pi, 
+          Rational[23, 10] Pi, Rational[139, 60] Pi, Rational[7, 3] Pi, 
+          Rational[47, 20] Pi, Rational[71, 30] Pi, Rational[143, 60] Pi, 
+          Rational[12, 5] Pi, Rational[29, 12] Pi, Rational[73, 30] Pi, 
+          Rational[49, 20] Pi, Rational[37, 15] Pi, Rational[149, 60] Pi, 
+          Rational[5, 2] Pi, Rational[151, 60] Pi, Rational[38, 15] Pi, 
+          Rational[51, 20] Pi, Rational[77, 30] Pi, Rational[31, 12] Pi, 
+          Rational[13, 5] Pi, Rational[157, 60] Pi, Rational[79, 30] Pi, 
+          Rational[53, 20] Pi, Rational[8, 3] Pi, Rational[161, 60] Pi, 
+          Rational[27, 10] Pi, Rational[163, 60] Pi, Rational[41, 15] Pi, 
+          Rational[11, 4] Pi, Rational[83, 30] Pi, Rational[167, 60] Pi, 
+          Rational[14, 5] Pi, Rational[169, 60] Pi, Rational[17, 6] Pi, 
+          Rational[57, 20] Pi, Rational[43, 15] Pi, Rational[173, 60] Pi, 
+          Rational[29, 10] Pi, Rational[35, 12] Pi, Rational[44, 15] Pi, 
+          Rational[59, 20] Pi, Rational[89, 30] Pi, Rational[179, 60] Pi, 3 
+          Pi, Rational[181, 60] Pi, Rational[91, 30] Pi, Rational[61, 20] Pi, 
+          Rational[46, 15] Pi, Rational[37, 12] Pi, Rational[31, 10] Pi, 
+          Rational[187, 60] Pi, Rational[47, 15] Pi, Rational[63, 20] Pi, 
+          Rational[19, 6] Pi, Rational[191, 60] Pi, Rational[16, 5] Pi, 
+          Rational[193, 60] Pi, Rational[97, 30] Pi, Rational[13, 4] Pi, 
+          Rational[49, 15] Pi, Rational[197, 60] Pi, Rational[33, 10] Pi, 
+          Rational[199, 60] Pi, Rational[10, 3] Pi, Rational[67, 20] Pi, 
+          Rational[101, 30] Pi, Rational[203, 60] Pi, Rational[17, 5] Pi, 
+          Rational[41, 12] Pi, Rational[103, 30] Pi, Rational[69, 20] Pi, 
+          Rational[52, 15] Pi, Rational[209, 60] Pi, Rational[7, 2] Pi, 
+          Rational[211, 60] Pi, Rational[53, 15] Pi, Rational[71, 20] Pi, 
+          Rational[107, 30] Pi, Rational[43, 12] Pi, Rational[18, 5] Pi, 
+          Rational[217, 60] Pi, Rational[109, 30] Pi, Rational[73, 20] Pi, 
+          Rational[11, 3] Pi, Rational[221, 60] Pi, Rational[37, 10] Pi, 
+          Rational[223, 60] Pi, Rational[56, 15] Pi, Rational[15, 4] Pi, 
+          Rational[113, 30] Pi, Rational[227, 60] Pi, Rational[19, 5] Pi, 
+          Rational[229, 60] Pi, Rational[23, 6] Pi, Rational[77, 20] Pi, 
+          Rational[58, 15] Pi, Rational[233, 60] Pi, Rational[39, 10] Pi, 
+          Rational[47, 12] Pi, Rational[59, 15] Pi, Rational[79, 20] Pi, 
+          Rational[119, 30] Pi, Rational[239, 60] Pi, 4 Pi, Rational[241, 60] 
+          Pi, Rational[121, 30] Pi, Rational[81, 20] Pi, Rational[61, 15] Pi, 
+          Rational[49, 12] Pi, Rational[41, 10] Pi, Rational[247, 60] Pi, 
+          Rational[62, 15] Pi, Rational[83, 20] Pi, Rational[25, 6] Pi, 
+          Rational[251, 60] Pi, Rational[21, 5] Pi, Rational[253, 60] Pi, 
+          Rational[127, 30] Pi, Rational[17, 4] Pi, Rational[64, 15] Pi, 
+          Rational[257, 60] Pi, Rational[43, 10] Pi, Rational[259, 60] Pi, 
+          Rational[13, 3] Pi, Rational[87, 20] Pi, Rational[131, 30] Pi, 
+          Rational[263, 60] Pi, Rational[22, 5] Pi, Rational[53, 12] Pi, 
+          Rational[133, 30] Pi, Rational[89, 20] Pi, Rational[67, 15] Pi, 
+          Rational[269, 60] Pi, Rational[9, 2] Pi, Rational[271, 60] Pi, 
+          Rational[68, 15] Pi, Rational[91, 20] Pi, Rational[137, 30] Pi, 
+          Rational[55, 12] Pi, Rational[23, 5] Pi, Rational[277, 60] Pi, 
+          Rational[139, 30] Pi, Rational[93, 20] Pi, Rational[14, 3] Pi, 
+          Rational[281, 60] Pi, Rational[47, 10] Pi, Rational[283, 60] Pi, 
+          Rational[71, 15] Pi, Rational[19, 4] Pi, Rational[143, 30] Pi, 
+          Rational[287, 60] Pi, Rational[24, 5] Pi, Rational[289, 60] Pi, 
+          Rational[29, 6] Pi, Rational[97, 20] Pi, Rational[73, 15] Pi, 
+          Rational[293, 60] Pi, Rational[49, 10] Pi, Rational[59, 12] Pi, 
+          Rational[74, 15] Pi, Rational[99, 20] Pi, Rational[149, 30] Pi, 
+          Rational[299, 60] Pi, 5 Pi, Rational[301, 60] Pi, Rational[151, 30] 
+          Pi, Rational[101, 20] Pi, Rational[76, 15] Pi, Rational[61, 12] Pi, 
+          Rational[51, 10] Pi, Rational[307, 60] Pi, Rational[77, 15] Pi, 
+          Rational[103, 20] Pi, Rational[31, 6] Pi, Rational[311, 60] Pi, 
+          Rational[26, 5] Pi, Rational[313, 60] Pi, Rational[157, 30] Pi, 
+          Rational[21, 4] Pi, Rational[79, 15] Pi, Rational[317, 60] Pi, 
+          Rational[53, 10] Pi, Rational[319, 60] Pi, Rational[16, 3] Pi, 
+          Rational[107, 20] Pi, Rational[161, 30] Pi, Rational[323, 60] Pi, 
+          Rational[27, 5] Pi, Rational[65, 12] Pi, Rational[163, 30] Pi, 
+          Rational[109, 20] Pi, Rational[82, 15] Pi, Rational[329, 60] Pi, 
+          Rational[11, 2] Pi, Rational[331, 60] Pi, Rational[83, 15] Pi, 
+          Rational[111, 20] Pi, Rational[167, 30] Pi, Rational[67, 12] Pi, 
+          Rational[28, 5] Pi, Rational[337, 60] Pi, Rational[169, 30] Pi, 
+          Rational[113, 20] Pi, Rational[17, 3] Pi, Rational[341, 60] Pi, 
+          Rational[57, 10] Pi, Rational[343, 60] Pi, Rational[86, 15] Pi, 
+          Rational[23, 4] Pi, Rational[173, 30] Pi, Rational[347, 60] Pi, 
+          Rational[29, 5] Pi, Rational[349, 60] Pi, Rational[35, 6] Pi, 
+          Rational[117, 20] Pi, Rational[88, 15] Pi, Rational[353, 60] Pi, 
+          Rational[59, 10] Pi, Rational[71, 12] Pi, Rational[89, 15] Pi, 
+          Rational[119, 20] Pi, Rational[179, 30] Pi, Rational[359, 60] Pi}, 
+         AppearanceElements -> {
+          "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
+           "DirectionButton"}}}, 
+      "Options" :> {
+       ControlType -> Animator, AppearanceElements -> None, DefaultBaseStyle -> 
+        "Animate", DefaultLabelStyle -> "AnimateLabel", SynchronousUpdating -> 
+        True, ShrinkingDelay -> 10.}, "DefaultOptions" :> {}],
+     ImageSizeCache->{367., {192.92062992486171`, 198.07937007513829`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Animate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.8963044421385365`*^9, 3.896305497643753*^9, 
+  3.8963055860232153`*^9, 3.8963067850071783`*^9},
+ CellLabel->
+  "Out[119]=",ExpressionUUID->"55bddbd7-c346-44bc-8fc4-ef408c2d5e27"],
+
+Cell[BoxData["Manipulate"], "Output",
+ CellChangeTimes->{3.8963044421385365`*^9, 3.896305497643753*^9, 
+  3.8963055860232153`*^9, 3.8963067853102713`*^9},
+ CellLabel->
+  "Out[120]=",ExpressionUUID->"b1dade13-11ec-4d10-a6a6-14d86a19a4fb"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"faces", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Polygon", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{"VertexTextureCoordinates", "->", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], "]"}], "&"}], "/@", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", "2", ",", "4", ",", "3"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "5", ",", "6", ",", "2"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "3", ",", "7", ",", "5"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"8", ",", "6", ",", "5", ",", "7"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"8", ",", "7", ",", "3", ",", "4"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"8", ",", "4", ",", "2", ",", "6"}], "}"}]}], "}"}]}]}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"images", "=", 
+     RowBox[{"Import", "/@", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\rich\\\\rich \
+image 1.webp\>\"", ",", 
+        "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\rich\\\\rich.\
+jpeg\>\"", ",", 
+        "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\rich\\\\richer.\
+jpg\>\"", ",", 
+        "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\poor\\\\\
+impoverished city 2.jpg\>\"", ",", 
+        "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\poor\\\\\
+impoverished city 3.jpeg\>\"", ",", 
+        "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\poor\\\\\
+impoverished image 1.jpeg\>\""}], "}"}]}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"textures2", "=", 
+     RowBox[{"Texture", "/@", "images"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"backgroundImage", "=", 
+     RowBox[{
+     "Import", "[", 
+      "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\stars.jpg\>\"", 
+      "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"sound", "=", 
+     RowBox[{"Sound", "[", 
+      RowBox[{
+       RowBox[{
+       "Import", "[", 
+        "\"\<C:\\\\Users\\\\ali12\\\\Downloads\\\\NKM-G-10-773-2971142058-0-\
+13645-92-92-4-2650-52-0-1-901-0-0-0-0-0-0-0-0-0.mp3\>\"", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "10"}], "}"}]}], "]"}]}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"cubeClosed", "=", 
+     RowBox[{"GraphicsComplex", "[", 
+      RowBox[{
+       RowBox[{"Tuples", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}], ",", "3"}], "]"}], ",", 
+       RowBox[{"Transpose", "[", 
+        RowBox[{"{", 
+         RowBox[{"textures2", ",", "faces"}], "}"}], "]"}]}], "]"}]}], ";"}], 
+   "\n", 
+   RowBox[{
+    RowBox[{"cubeOpen", "=", 
+     RowBox[{"GraphicsComplex", "[", 
+      RowBox[{
+       RowBox[{"Tuples", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}], ",", "3"}], "]"}], ",", 
+       RowBox[{"Transpose", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"textures2", "[", 
+           RowBox[{"[", "4", "]"}], "]"}], ",", "faces"}], "}"}], "]"}]}], 
+      "]"}]}], ";"}], "  ", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Change", " ", "the", " ", "index", " ", "to", " ", "select", " ", "the", 
+     " ", "desired", " ", "image"}], "*)"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"closedAnimation", "=", 
+     RowBox[{"Animate", "[", 
+      RowBox[{
+       RowBox[{"Show", "[", 
+        RowBox[{
+         RowBox[{"Graphics3D", "[", 
+          RowBox[{
+           RowBox[{"Rotate", "[", 
+            RowBox[{"cubeClosed", ",", "t", ",", 
+             RowBox[{
+              RowBox[{"IdentityMatrix", "[", "3", "]"}], "[", 
+              RowBox[{"[", 
+               RowBox[{"1", "+", 
+                RowBox[{"Quotient", "[", 
+                 RowBox[{"t", ",", 
+                  RowBox[{"2", " ", "Pi"}]}], "]"}]}], "]"}], "]"}], ",", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"1", ",", "1", ",", "1"}], "}"}], "/", "2"}]}], "]"}], 
+           ",", 
+           RowBox[{"Lighting", "->", "\"\<Neutral\>\""}], ",", 
+           RowBox[{"SphericalRegion", "->", "True"}], ",", 
+           RowBox[{"PlotRange", "->", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "1"}], "/", "2"}], ",", 
+                RowBox[{"3", "/", "2"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "1"}], "/", "2"}], ",", 
+                RowBox[{"3", "/", "2"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "1"}], "/", "2"}], ",", 
+                RowBox[{"3", "/", "2"}]}], "}"}]}], "}"}]}], ",", 
+           RowBox[{"Boxed", "->", "False"}], ",", 
+           RowBox[{"Background", "->", "backgroundImage"}]}], "]"}], ",", 
+         RowBox[{"EmitSound", "[", "sound", "]"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", 
+         RowBox[{"Range", "[", 
+          RowBox[{"0", ",", 
+           RowBox[{
+            RowBox[{"3", " ", "Pi"}], "-", 
+            RowBox[{"Pi", "/", "120"}]}], ",", 
+           RowBox[{"Pi", "/", "60"}]}], "]"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"openAnimation", "=", 
+     RowBox[{"Animate", "[", 
+      RowBox[{
+       RowBox[{"Show", "[", 
+        RowBox[{"Graphics3D", "[", 
+         RowBox[{
+          RowBox[{"Rotate", "[", 
+           RowBox[{"cubeOpen", ",", 
+            RowBox[{"t", "-", 
+             RowBox[{"3", " ", "Pi"}]}], ",", 
+            RowBox[{
+             RowBox[{"IdentityMatrix", "[", "3", "]"}], "[", 
+             RowBox[{"[", 
+              RowBox[{"1", "+", 
+               RowBox[{"Quotient", "[", 
+                RowBox[{
+                 RowBox[{"t", "-", 
+                  RowBox[{"3", " ", "Pi"}]}], ",", 
+                 RowBox[{"2", " ", "Pi"}]}], "]"}]}], "]"}], "]"}], ",", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1", ",", "1"}], "}"}], "/", "2"}]}], "]"}], 
+          ",", 
+          RowBox[{"Lighting", "->", "\"\<Neutral\>\""}], ",", 
+          RowBox[{"SphericalRegion", "->", "True"}], ",", 
+          RowBox[{"PlotRange", "->", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "1"}], "/", "2"}], "-", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}], ",", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"3", "/", "2"}], ")"}], "+", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "1"}], "/", "2"}], "-", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}], ",", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"3", "/", "2"}], ")"}], "+", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "1"}], "/", "2"}], "-", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}], ",", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"3", "/", "2"}], ")"}], "+", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}]}], "}"}]}], 
+            "}"}]}], ",", 
+          RowBox[{"Boxed", "->", "False"}], ",", 
+          RowBox[{"Background", "->", "backgroundImage"}]}], "]"}], "]"}], 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", 
+         RowBox[{"Range", "[", 
+          RowBox[{
+           RowBox[{"3", " ", "Pi"}], ",", 
+           RowBox[{
+            RowBox[{"6", " ", "Pi"}], "-", 
+            RowBox[{"Pi", "/", "120"}]}], ",", 
+           RowBox[{"Pi", "/", "60"}]}], "]"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\n", "\[IndentingNewLine]", 
+   RowBox[{"Show", "[", 
+    RowBox[{"closedAnimation", ",", "openAnimation"}], "]"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\n", 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellFrame->{{0, 0}, {0, 3}},
+ CellFrameColor->GrayLevel[0.75],
+ CellChangeTimes->{
+  3.8963047317890434`*^9, {3.8963049944896517`*^9, 3.8963049956226053`*^9}, {
+   3.896305402076266*^9, 
+   3.896305404462341*^9}},ExpressionUUID->"da859aba-91a8-4e5a-9522-\
+f38f872c08fe"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"faces", "=", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Polygon", "[", 
+                   RowBox[{"#", ",", 
+                    RowBox[{"VertexTextureCoordinates", "->", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "1"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], "]"}], "&"}],
+                  "/@", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"1", ",", "2", ",", "4", ",", "3"}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"1", ",", "5", ",", "6", ",", "2"}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"1", ",", "3", ",", "7", ",", "5"}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"8", ",", "6", ",", "5", ",", "7"}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"8", ",", "7", ",", "3", ",", "4"}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"8", ",", "4", ",", "2", ",", "6"}], "}"}]}], 
+                  "}"}]}]}], ";"}], "\[IndentingNewLine]", "\n", 
+              RowBox[{
+               RowBox[{"imagePaths", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                 "\"\<path_to_image_1\>\"", ",", "\"\<path_to_image_2\>\"", 
+                  ",", "\"\<path_to_image_3\>\"", ",", 
+                  "\"\<path_to_image_4\>\"", ",", "\"\<path_to_image_5\>\"", 
+                  ",", "\"\<path_to_image_6\>\""}], "}"}]}], ";"}], 
+              "\[IndentingNewLine]", "\n", 
+              RowBox[{
+               RowBox[{"images", "=", 
+                RowBox[{"Import", "/@", "imagePaths"}]}], ";"}], "\n", 
+              RowBox[{
+               RowBox[{"textures2", "=", 
+                RowBox[{"Texture", "/@", "images"}]}], ";"}], 
+              "\[IndentingNewLine]", "\n", 
+              RowBox[{
+               RowBox[{"backgroundImage", "=", 
+                RowBox[{
+                "Import", "[", 
+                 "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\stars.\
+jpg\>\"", "]"}]}], ";"}], "\n", 
+              RowBox[{
+               RowBox[{"sound", "=", 
+                RowBox[{"Sound", "[", 
+                 RowBox[{
+                  RowBox[{
+                  "Import", "[", 
+                   "\"\<C:\\\\Users\\\\ali12\\\\Downloads\\\\NKM-G-10-773-\
+2971142058-0-13645-92-92-4-2650-52-0-1-901-0-0-0-0-0-0-0-0-0.mp3\>\"", "]"}], 
+                  ",", 
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "10"}], "}"}]}], "]"}]}], ";"}], 
+              "\[IndentingNewLine]", "\n", 
+              RowBox[{
+               RowBox[{"cubeClosed", "=", 
+                RowBox[{"GraphicsComplex", "[", 
+                 RowBox[{
+                  RowBox[{"Tuples", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "1"}], "}"}], ",", "3"}], "]"}], ",", 
+                  RowBox[{"Transpose", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"textures2", ",", "faces"}], "}"}], "]"}]}], 
+                 "]"}]}], ";"}], "\n", 
+              RowBox[{
+               RowBox[{"imageTexture", "=", 
+                RowBox[{"Texture", "[", 
+                 RowBox[{
+                 "Import", "[", 
+                  "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\borgen \
+image.jpg\>\"", "]"}], "]"}]}], ";"}], "  ", 
+              RowBox[{"(*", 
+               RowBox[{
+               "Replace", " ", "with", " ", "the", " ", "path", " ", "to", 
+                " ", "the", " ", "image", " ", "you", " ", "want", " ", "to", 
+                " ", "display", " ", "when", " ", "the", " ", "cube", " ", 
+                "opens"}], "*)"}], "\n", 
+              RowBox[{
+               RowBox[{"cubeOpen", "=", 
+                RowBox[{"GraphicsComplex", "[", 
+                 RowBox[{
+                  RowBox[{"Tuples", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "1"}], "}"}], ",", "3"}], "]"}], ",", 
+                  RowBox[{"Transpose", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"imageTexture", ",", "faces"}], "}"}], "]"}]}], 
+                 "]"}]}], ";"}], "\[IndentingNewLine]", "\n", 
+              RowBox[{
+               RowBox[{"closedAnimation", "=", 
+                RowBox[{"Animate", "[", 
+                 RowBox[{
+                  RowBox[{"Show", "[", 
+                   RowBox[{
+                    RowBox[{"Graphics3D", "[", 
+                    RowBox[{
+                    RowBox[{"Rotate", "[", 
+                    RowBox[{"cubeClosed", ",", "t", ",", 
+                    RowBox[{
+                    RowBox[{"IdentityMatrix", "[", "3", "]"}], "[", 
+                    RowBox[{"[", 
+                    RowBox[{"1", "+", 
+                    RowBox[{"Quotient", "[", 
+                    RowBox[{"t", ",", 
+                    RowBox[{"2", " ", "Pi"}]}], "]"}]}], "]"}], "]"}], ",", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "1", ",", "1"}], "}"}], "/", "2"}]}], 
+                    "]"}], ",", 
+                    RowBox[{"Lighting", "->", "\"\<Neutral\>\""}], ",", 
+                    RowBox[{"SphericalRegion", "->", "True"}], ",", 
+                    RowBox[{"PlotRange", "->", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", "2"}], ",", 
+                    RowBox[{"3", "/", "2"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", "2"}], ",", 
+                    RowBox[{"3", "/", "2"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", "2"}], ",", 
+                    RowBox[{"3", "/", "2"}]}], "}"}]}], "}"}]}], ",", 
+                    RowBox[{"Boxed", "->", "False"}], ",", 
+                    RowBox[{"Background", "->", "backgroundImage"}]}], "]"}], 
+                    ",", 
+                    RowBox[{"EmitSound", "[", "sound", "]"}]}], "]"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"t", ",", 
+                    RowBox[{"Range", "[", 
+                    RowBox[{"0", ",", 
+                    RowBox[{
+                    RowBox[{"3", " ", "Pi"}], "-", 
+                    RowBox[{"Pi", "/", "120"}]}], ",", 
+                    RowBox[{"Pi", "/", "60"}]}], "]"}]}], "}"}]}], "]"}]}], 
+               ";"}], "\[IndentingNewLine]", "\n", 
+              RowBox[{"openAnimation", "=", 
+               RowBox[{"Animate", "[", 
+                RowBox[{"Show", "[", 
+                 RowBox[{"Graphics3D", "[", 
+                  RowBox[{
+                   RowBox[{"Rotate", "[", 
+                    RowBox[{"cubeOpen", ",", 
+                    RowBox[{"t", "-", 
+                    RowBox[{"3", " ", "Pi"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"IdentityMatrix", "[", "3", "]"}], "[", 
+                    RowBox[{"[", 
+                    RowBox[{"1", "+", 
+                    RowBox[{"Quotient", "[", 
+                    RowBox[{
+                    RowBox[{"t", "-", 
+                    RowBox[{"3", " ", "Pi"}]}], ",", 
+                    RowBox[{"2", " ", "Pi"}]}], "]"}]}], "]"}], "]"}], ",", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "1", ",", "1"}], "}"}], "/", "2"}]}], 
+                    "]"}], ",", 
+                   RowBox[{"Lighting", "->", "\"\<Neutral\>\""}], ",", 
+                   RowBox[{"SphericalRegion", "->", "True"}], ",", 
+                   RowBox[{"PlotRange", "->", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", "2"}], "-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"3", "/", "2"}], ")"}], "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}]}], "}"}], 
+                    ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", "2"}], "-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"3", "/", "2"}], ")"}], "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}]}], "}"}], 
+                    ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", "2"}], "-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"t", "-", "3"}], ")"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{"10", ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"3", "/", "2"}], ")"}], "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"t", "-", "3"}], ")"}], "/", 
+                    "10"}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}], "}"}], "}"}], ",", 
+           RowBox[{"Boxed", "->", "False"}], ",", 
+           RowBox[{"Background", "->", "backgroundImage"}]}], "\n"}], "]"}], 
+        "\n"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", 
+        RowBox[{"Range", "[", 
+         RowBox[{
+          RowBox[{"3", " ", "Pi"}], ",", 
+          RowBox[{
+           RowBox[{"6", " ", "Pi"}], "-", 
+           RowBox[{"Pi", "/", "120"}]}], ",", 
+          RowBox[{"Pi", "/", "60"}]}], "]"}]}], "}"}]}], "\n"}], "]"}], ";"}],
+   "\[IndentingNewLine]"}], "\n", 
+ RowBox[{"Show", "[", 
+  RowBox[{"closedAnimation", ",", "openAnimation"}], "]"}], "\n"}], "Input",
+ CellChangeTimes->{
+  3.896304914129526*^9, {3.896305022118966*^9, 3.896305032507986*^9}},
+ EmphasizeSyntaxErrors->True,
+ CellLabel->"In[82]:=",ExpressionUUID->"969a319c-799d-4e23-9f22-c47f94353c82"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Syntax", "bktmcp", 
+   "\"Expression \\\"\\!\\(\\*RowBox[{\\\"(\\\", RowBox[{\\\"10\\\", \
+\\\",\\\", RowBox[{RowBox[{\\\"(\\\", RowBox[{\\\"3\\\", \\\"/\\\", \
+\\\"2\\\"}], \\\")\\\"}], \\\"+\\\", RowBox[{RowBox[{\\\"(\\\", RowBox[{\\\"t\
+\\\", \\\"-\\\", \\\"3\\\"}], \\\")\\\"}], \\\"/\\\", \\\"10\\\"}]}]}]}]\\)\\\
+\" has no closing \
+\\\"\\!\\(\\*RowBox[{\\\"\\\\\\\")\\\\\\\"\\\"}]\\)\\\"\\!\\(\\*RowBox[{\\\"\\\
+\\\\\"\\\\\\\"\\\"}]\\).\"", 2, 82, 5375, 19179583749901786754, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8963050561008215`*^9},
+ CellLabel->
+  "During evaluation of \
+In[82]:=",ExpressionUUID->"013ea76f-5b81-4938-9616-135b8d1b069e"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.896305158336385*^9, 
+  3.896305159042824*^9}},ExpressionUUID->"99e92592-ede0-47e6-b001-\
+26989b90e260"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"faces", "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Polygon", "[", 
+       RowBox[{"#", ",", 
+        RowBox[{"VertexTextureCoordinates", "->", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], "]"}], "&"}], "/@", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "2", ",", "4", ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "5", ",", "6", ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "3", ",", "7", ",", "5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"8", ",", "6", ",", "5", ",", "7"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"8", ",", "7", ",", "3", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"8", ",", "4", ",", "2", ",", "6"}], "}"}]}], "}"}]}]}], 
+   ";"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"imagePaths", "=", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\rich\\\\rich image \
+1.webp\>\"", ",", 
+      "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\rich\\\\rich.jpeg\>\
+\"", ",", 
+      "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\rich\\\\richer.jpg\
+\>\"", ",", 
+      "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\poor\\\\\
+impoverished city 2.jpg\>\"", ",", 
+      "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\poor\\\\\
+impoverished city 3.jpeg\>\"", ",", 
+      "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\poor\\\\\
+impoverished image 1.jpeg\>\""}], "}"}]}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"images", "=", 
+   RowBox[{"Import", "/@", "imagePaths"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"textures2", "=", 
+    RowBox[{"Texture", "/@", "images"}]}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"backgroundImage", "=", 
+   RowBox[{
+   "Import", "[", 
+    "\"\<C:\\\\Users\\\\ali12\\\\OneDrive\\\\Pictures\\\\stars.jpg\>\"", 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"sound", "=", 
+    RowBox[{"Sound", "[", 
+     RowBox[{
+      RowBox[{
+      "Import", "[", 
+       "\"\<C:\\\\Users\\\\ali12\\\\Downloads\\\\NKM-G-10-773-2971142058-0-\
+13645-92-92-4-2650-52-0-1-901-0-0-0-0-0-0-0-0-0.mp3\>\"", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "10"}], "}"}]}], "]"}]}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"cubeClosed", "=", 
+   RowBox[{"GraphicsComplex", "[", 
+    RowBox[{
+     RowBox[{"Tuples", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}], ",", "3"}], "]"}], ",", 
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{"textures2", ",", "faces"}], "}"}], "]"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"imageTexture", "=", 
+    RowBox[{"Texture", "[", 
+     RowBox[{"Import", "[", "\"\<path_to_open_image.jpg\>\"", "]"}], "]"}]}], 
+   ";"}], "  ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Replace", " ", "with", " ", "the", " ", "path", " ", "to", " ", "the", 
+    " ", "image", " ", "you", " ", "want", " ", "to", " ", "display", " ", 
+    "when", " ", "the", " ", "cube", " ", "opens"}], "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"cubeOpen", "=", 
+    RowBox[{"GraphicsComplex", "[", 
+     RowBox[{
+      RowBox[{"Tuples", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1"}], "}"}], ",", "3"}], "]"}], ",", 
+      RowBox[{"Transpose", "[", 
+       RowBox[{"{", 
+        RowBox[{"imageTexture", ",", "faces"}], "}"}], "]"}]}], "]"}]}], 
+   ";"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"closedAnimation", "=", 
+    RowBox[{"Animate", "[", 
+     RowBox[{
+      RowBox[{"Show", "[", 
+       RowBox[{
+        RowBox[{"Graphics3D", "[", 
+         RowBox[{
+          RowBox[{"Rotate", "[", 
+           RowBox[{"cubeClosed", ",", "t", ",", 
+            RowBox[{
+             RowBox[{"IdentityMatrix", "[", "3", "]"}], "[", 
+             RowBox[{"[", 
+              RowBox[{"1", "+", 
+               RowBox[{"Quotient", "[", 
+                RowBox[{"t", ",", 
+                 RowBox[{"2", " ", "Pi"}]}], "]"}]}], "]"}], "]"}], ",", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1", ",", "1"}], "}"}], "/", "2"}]}], "]"}], 
+          ",", 
+          RowBox[{"Lighting", "->", "\"\<Neutral\>\""}], ",", 
+          RowBox[{"SphericalRegion", "->", "True"}], ",", 
+          RowBox[{"PlotRange", "->", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "1"}], "/", "2"}], ",", 
+               RowBox[{"3", "/", "2"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "1"}], "/", "2"}], ",", 
+               RowBox[{"3", "/", "2"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "1"}], "/", "2"}], ",", 
+               RowBox[{"3", "/", "2"}]}], "}"}]}], "}"}]}], ",", 
+          RowBox[{"Boxed", "->", "False"}], ",", 
+          RowBox[{"Background", "->", "backgroundImage"}]}], "]"}], ",", 
+        RowBox[{"EmitSound", "[", "sound", "]"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", 
+        RowBox[{"Range", "[", 
+         RowBox[{"0", ",", 
+          RowBox[{
+           RowBox[{"3", " ", "Pi"}], "-", 
+           RowBox[{"Pi", "/", "120"}]}], ",", 
+          RowBox[{"Pi", "/", "60"}]}], "]"}]}], "}"}]}], "]"}]}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"openAnimation", "=", 
+    RowBox[{"Animate", "[", 
+     RowBox[{
+      RowBox[{"Show", "[", 
+       RowBox[{"Graphics3D", "[", 
+        RowBox[{
+         RowBox[{"Rotate", "[", 
+          RowBox[{"cubeOpen", ",", 
+           RowBox[{"t", "-", 
+            RowBox[{"3", " ", "Pi"}]}], ",", 
+           RowBox[{
+            RowBox[{"IdentityMatrix", "[", "3", "]"}], "[", 
+            RowBox[{"[", 
+             RowBox[{"1", "+", 
+              RowBox[{"Quotient", "[", 
+               RowBox[{
+                RowBox[{"t", "-", 
+                 RowBox[{"3", " ", "Pi"}]}], ",", 
+                RowBox[{"2", " ", "Pi"}]}], "]"}]}], "]"}], "]"}], ",", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"1", ",", "1", ",", "1"}], "}"}], "/", "2"}]}], "]"}], 
+         ",", 
+         RowBox[{"Lighting", "->", "\"\<Neutral\>\""}], ",", 
+         RowBox[{"SphericalRegion", "->", "True"}], ",", 
+         RowBox[{"PlotRange", "->", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "1"}], "/", "2"}], "-", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}], ",", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"3", "/", "2"}], ")"}], "+", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "1"}], "/", "2"}], "-", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}], ",", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"3", "/", "2"}], ")"}], "+", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "1"}], "/", "2"}], "-", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}], ",", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"3", "/", "2"}], ")"}], "+", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"t", "-", "3"}], ")"}], "/", "10"}]}]}], "}"}]}], 
+           "}"}]}], ",", 
+         RowBox[{"Boxed", "->", "False"}], ",", 
+         RowBox[{"Background", "->", "backgroundImage"}]}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", 
+        RowBox[{"Range", "[", 
+         RowBox[{
+          RowBox[{"3", " ", "Pi"}], ",", 
+          RowBox[{
+           RowBox[{"6", " ", "Pi"}], "-", 
+           RowBox[{"Pi", "/", "120"}]}], ",", 
+          RowBox[{"Pi", "/", "60"}]}], "]"}]}], "}"}]}], "]"}]}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{"closedAnimation", ",", "openAnimation"}], "]"}], "\n"}], "Input",
+ CellChangeTimes->{3.8963051549732037`*^9, 3.8963052018263206`*^9},
+ CellLabel->"In[82]:=",ExpressionUUID->"a0c53123-a56d-4190-bdd6-224803868c28"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Import", "nffil", 
+   "\"File \\!\\(\\*RowBox[{\\\"\\\\\\\"C:\\\\\\\\\\\\\\\\Users\\\\\\\\\\\\\\\
+\\ali12\\\\\\\\\\\\\\\\OneDrive\\\\\\\\\\\\\\\\Pictures\\\\\\\\\\\\\\\\poor\\\
+\\\\\\\\\\\\\\impoverished image 1.jpeg\\\\\\\"\\\"}]\\) not found during \\!\
+\\(\\*RowBox[{\\\"Import\\\"}]\\).\"", 2, 84, 5376, 19179583749901786754, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8963052054709463`*^9},
+ CellLabel->
+  "During evaluation of \
+In[82]:=",ExpressionUUID->"5245062f-1abd-43ba-8d47-4cc9662d3e93"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Import", "nffil", 
+   "\"File \\!\\(\\*RowBox[{\\\"\\\\\\\"path_to_open_image.jpg\\\\\\\"\\\"}]\\\
+) not found during \\!\\(\\*RowBox[{\\\"Import\\\"}]\\).\"", 2, 89, 5377, 
+   19179583749901786754, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.89630520565791*^9},
+ CellLabel->
+  "During evaluation of \
+In[82]:=",ExpressionUUID->"18add2d6-46a8-4d29-aeff-f37ec5e88b09"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Transpose", "nmtx", 
+   "\"The first two levels of \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"Texture\\\", \\\"[\\\", \\\"$Failed\\\", \\\"]\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"Polygon\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\",\\\", \\\"2\\\", \
+\\\",\\\", \\\"4\\\", \\\",\\\", \\\"3\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"VertexTextureCoordinates\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"0\\\"}], \\\"}\\\
+\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\",\\\", \
+\\\"0\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\
+\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \\\"}\\\"}]}]}], \\\
+\"]\\\"}], \\\",\\\", RowBox[{\\\"Polygon\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\",\\\", \\\"5\\\", \
+\\\",\\\", \\\"6\\\", \\\",\\\", \\\"2\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"VertexTextureCoordinates\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"0\\\"}], \\\"}\\\
+\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\",\\\", \
+\\\"0\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\
+\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \\\"}\\\"}]}]}], \\\
+\"]\\\"}], \\\",\\\", RowBox[{\\\"Polygon\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\",\\\", \\\"3\\\", \
+\\\",\\\", \\\"7\\\", \\\",\\\", \\\"5\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"VertexTextureCoordinates\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"0\\\"}], \\\"}\\\
+\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\",\\\", \
+\\\"0\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\
+\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \\\"}\\\"}]}]}], \\\
+\"]\\\"}], \\\",\\\", RowBox[{\\\"Polygon\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"8\\\", \\\",\\\", \\\"6\\\", \
+\\\",\\\", \\\"5\\\", \\\",\\\", \\\"7\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"VertexTextureCoordinates\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"0\\\"}], \\\"}\\\
+\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\",\\\", \
+\\\"0\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\
+\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \\\"}\\\"}]}]}], \\\
+\"]\\\"}], \\\",\\\", RowBox[{\\\"Polygon\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"8\\\", \\\",\\\", \\\"7\\\", \
+\\\",\\\", \\\"3\\\", \\\",\\\", \\\"4\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"VertexTextureCoordinates\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"0\\\"}], \\\"}\\\
+\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\",\\\", \
+\\\"0\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\
+\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \\\"}\\\"}]}]}], \\\
+\"]\\\"}], \\\",\\\", RowBox[{\\\"Polygon\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"8\\\", \\\",\\\", \\\"4\\\", \
+\\\",\\\", \\\"2\\\", \\\",\\\", \\\"6\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"VertexTextureCoordinates\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"0\\\"}], \\\"}\\\
+\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\",\\\", \
+\\\"0\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\
+\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \\\"}\\\"}]}]}], \\\
+\"]\\\"}]}], \\\"}\\\"}]}], \\\"}\\\"}]\\) cannot be transposed.\"", 2, 90, 
+   5378, 19179583749901786754, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8963052057377796`*^9},
+ CellLabel->
+  "During evaluation of \
+In[82]:=",ExpressionUUID->"d37c209a-d368-4518-8037-926bbfe6b980"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show", "gcomb", 
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", \
+RowBox[{TagBox[StyleBox[DynamicModuleBox[{t$$ = 0, Set[Typeset`show$$, True], \
+Set[Typeset`bookmarkList$$, List[]], Set[Typeset`bookmarkMode$$, \
+\\\"Menu\\\"], Typeset`animator$$, Set[Typeset`animvar$$, 1], \
+Set[Typeset`name$$, \\\"\\\\\\\"untitled\\\\\\\"\\\"], Set[Typeset`specs$$, \
+List[List[Hold[t$$], List[0, Times[Rational[1, 60], Pi], Times[Rational[1, \
+30], Pi], Times[Rational[1, 20], Pi], Times[Rational[1, 15], Pi], \
+Times[Rational[1, 12], Pi], Times[Rational[1, 10], Pi], Times[Rational[7, \
+60], Pi], Times[Rational[2, 15], Pi], Times[Rational[3, 20], Pi], \
+Skeleton[170]]]]], Set[Typeset`size$$, Automatic], Set[Typeset`update$$, 0], \
+Set[Typeset`initDone$$, False], Set[Typeset`skipInitDone$$, True]}, \
+DynamicBox[Manipulate`ManipulateBoxes[1, StandardForm, \
+RuleDelayed[\\\"Variables\\\", List[Set[t$$, 0]]], \
+RuleDelayed[\\\"ControllerVariables\\\", List[]], \
+RuleDelayed[\\\"OtherVariables\\\", List[Typeset`show$$, \
+Typeset`bookmarkList$$, Typeset`bookmarkMode$$, Typeset`animator$$, \
+Typeset`animvar$$, Typeset`name$$, Typeset`specs$$, Typeset`size$$, \
+Typeset`update$$, Typeset`initDone$$, Typeset`skipInitDone$$]], \
+RuleDelayed[\\\"Body\\\", Show[Graphics3D[Rotate[cubeClosed, t$$, \
+Part[IdentityMatrix[3], Plus[1, Quotient[Skeleton[2]]]], Times[List[1, 1, 1], \
+Power[2, -1]]], Rule[Lighting, \\\"Neutral\\\"], Rule[SphericalRegion, True], \
+Rule[PlotRange, List[List[Times[Skeleton[2]], Times[Skeleton[2]]], \
+List[Times[Skeleton[2]], Times[Skeleton[2]]], List[Times[Skeleton[2]], \
+Times[Skeleton[2]]]]], Rule[Boxed, False], Rule[Background, \
+backgroundImage]], EmitSound[sound]]], RuleDelayed[\\\"Specifications\\\", \
+List[List[t$$, List[0, Times[Rational[1, 60], Pi], Times[Rational[1, 30], \
+Pi], Times[Rational[1, 20], Pi], Times[Rational[1, 15], Pi], \
+Times[Rational[1, 12], Pi], Times[Rational[1, 10], Pi], Times[Rational[7, \
+60], Pi], Times[Rational[2, 15], Pi], Times[Rational[3, 20], Pi], \
+Skeleton[170]], Rule[AppearanceElements, List[\\\"ProgressSlider\\\", \
+\\\"PlayPauseButton\\\", \\\"FasterSlowerButtons\\\", \
+\\\"DirectionButton\\\"]]]]], RuleDelayed[\\\"Options\\\", \
+List[Rule[ControlType, Animator], Rule[AppearanceElements, None], \
+Rule[DefaultBaseStyle, \\\"Animate\\\"], Rule[DefaultLabelStyle, \
+\\\"AnimateLabel\\\"], Rule[SynchronousUpdating, True], Rule[ShrinkingDelay, \
+10.`]]], RuleDelayed[\\\"DefaultOptions\\\", List[]]], Rule[SingleEvaluation, \
+True]], RuleDelayed[DynamicModuleValues, List[]], \
+RuleDelayed[Deinitialization, None], RuleDelayed[UntrackedVariables, \
+List[Typeset`size$$]], Rule[SynchronousInitialization, True], \
+RuleDelayed[UnsavedVariables, List[Typeset`initDone$$]], \
+RuleDelayed[UndoTrackedVariables, List[Typeset`show$$, \
+Typeset`bookmarkMode$$]]], \\\"Animate\\\", Rule[Deployed, True], \
+Rule[StripOnInput, False]], Manipulate`InterpretManipulate[1]], \\\",\\\", \
+TagBox[StyleBox[DynamicModuleBox[{t$$ = Times[3, Pi], Set[Typeset`show$$, \
+True], Set[Typeset`bookmarkList$$, List[]], Set[Typeset`bookmarkMode$$, \
+\\\"Menu\\\"], Typeset`animator$$, Set[Typeset`animvar$$, 1], \
+Set[Typeset`name$$, \\\"\\\\\\\"untitled\\\\\\\"\\\"], Set[Typeset`specs$$, \
+List[List[Hold[t$$], List[Times[3, Pi], Times[Rational[181, 60], Pi], \
+Times[Rational[91, 30], Pi], Times[Rational[61, 20], Pi], Times[Rational[46, \
+15], Pi], Times[Rational[37, 12], Pi], Times[Rational[31, 10], Pi], \
+Times[Rational[187, 60], Pi], Times[Rational[47, 15], Pi], Times[Rational[63, \
+20], Pi], Skeleton[170]]]]], Set[Typeset`size$$, Automatic], \
+Set[Typeset`update$$, 0], Set[Typeset`initDone$$, False], \
+Set[Typeset`skipInitDone$$, True]}, DynamicBox[Manipulate`ManipulateBoxes[1, \
+StandardForm, RuleDelayed[\\\"Variables\\\", List[Set[t$$, Times[3, Pi]]]], \
+RuleDelayed[\\\"ControllerVariables\\\", List[]], \
+RuleDelayed[\\\"OtherVariables\\\", List[Typeset`show$$, \
+Typeset`bookmarkList$$, Typeset`bookmarkMode$$, Typeset`animator$$, \
+Typeset`animvar$$, Typeset`name$$, Typeset`specs$$, Typeset`size$$, \
+Typeset`update$$, Typeset`initDone$$, Typeset`skipInitDone$$]], \
+RuleDelayed[\\\"Body\\\", Show[Graphics3D[Rotate[cubeOpen, Plus[t$$, \
+Times[-1, Times[Skeleton[2]]]], Part[IdentityMatrix[3], Plus[1, \
+Quotient[Skeleton[2]]]], Times[List[1, 1, 1], Power[2, -1]]], Rule[Lighting, \
+\\\"Neutral\\\"], Rule[SphericalRegion, True], Rule[PlotRange, \
+List[List[Plus[Skeleton[2]], Plus[Skeleton[2]]], List[Plus[Skeleton[2]], \
+Plus[Skeleton[2]]], List[Plus[Skeleton[2]], Plus[Skeleton[2]]]]], Rule[Boxed, \
+False], Rule[Background, backgroundImage]]]], \
+RuleDelayed[\\\"Specifications\\\", List[List[t$$, List[Times[3, Pi], \
+Times[Rational[181, 60], Pi], Times[Rational[91, 30], Pi], Times[Rational[61, \
+20], Pi], Times[Rational[46, 15], Pi], Times[Rational[37, 12], Pi], \
+Times[Rational[31, 10], Pi], Times[Rational[187, 60], Pi], Times[Rational[47, \
+15], Pi], Times[Rational[63, 20], Pi], Skeleton[170]], \
+Rule[AppearanceElements, List[\\\"ProgressSlider\\\", \
+\\\"PlayPauseButton\\\", \\\"FasterSlowerButtons\\\", \
+\\\"DirectionButton\\\"]]]]], RuleDelayed[\\\"Options\\\", \
+List[Rule[ControlType, Animator], Rule[AppearanceElements, None], \
+Rule[DefaultBaseStyle, \\\"Animate\\\"], Rule[DefaultLabelStyle, \
+\\\"AnimateLabel\\\"], Rule[SynchronousUpdating, True], Rule[ShrinkingDelay, \
+10.`]]], RuleDelayed[\\\"DefaultOptions\\\", List[]]], Rule[SingleEvaluation, \
+True]], RuleDelayed[DynamicModuleValues, List[]], \
+RuleDelayed[Deinitialization, None], RuleDelayed[UntrackedVariables, \
+List[Typeset`size$$]], Rule[SynchronousInitialization, True], \
+RuleDelayed[UnsavedVariables, List[Typeset`initDone$$]], \
+RuleDelayed[UndoTrackedVariables, List[Typeset`show$$, \
+Typeset`bookmarkMode$$]]], \\\"Animate\\\", Rule[Deployed, True], \
+Rule[StripOnInput, False]], Manipulate`InterpretManipulate[1]]}], \\\"]\\\"}]\
+\\).\"", 2, 93, 5379, 19179583749901786754, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8963052059076138`*^9},
+ CellLabel->
+  "During evaluation of \
+In[82]:=",ExpressionUUID->"1bc5e8d8-cd71-4216-bdcd-81323b8f7fe3"],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{
+   TagBox[
+    StyleBox[
+     DynamicModuleBox[{$CellContext`t$$ = 2.251474735072685, Typeset`show$$ = 
+      True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+      Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+      "\"untitled\"", Typeset`specs$$ = {{
+        Hold[$CellContext`t$$], {
+        0, Rational[1, 60] Pi, Rational[1, 30] Pi, Rational[1, 20] Pi, 
+         Rational[1, 15] Pi, Rational[1, 12] Pi, Rational[1, 10] Pi, 
+         Rational[7, 60] Pi, Rational[2, 15] Pi, Rational[3, 20] Pi, 
+         Rational[1, 6] Pi, Rational[11, 60] Pi, Rational[1, 5] Pi, 
+         Rational[13, 60] Pi, Rational[7, 30] Pi, Rational[1, 4] Pi, 
+         Rational[4, 15] Pi, Rational[17, 60] Pi, Rational[3, 10] Pi, 
+         Rational[19, 60] Pi, Rational[1, 3] Pi, Rational[7, 20] Pi, 
+         Rational[11, 30] Pi, Rational[23, 60] Pi, Rational[2, 5] Pi, 
+         Rational[5, 12] Pi, Rational[13, 30] Pi, Rational[9, 20] Pi, 
+         Rational[7, 15] Pi, Rational[29, 60] Pi, Rational[1, 2] Pi, 
+         Rational[31, 60] Pi, Rational[8, 15] Pi, Rational[11, 20] Pi, 
+         Rational[17, 30] Pi, Rational[7, 12] Pi, Rational[3, 5] Pi, 
+         Rational[37, 60] Pi, Rational[19, 30] Pi, Rational[13, 20] Pi, 
+         Rational[2, 3] Pi, Rational[41, 60] Pi, Rational[7, 10] Pi, 
+         Rational[43, 60] Pi, Rational[11, 15] Pi, Rational[3, 4] Pi, 
+         Rational[23, 30] Pi, Rational[47, 60] Pi, Rational[4, 5] Pi, 
+         Rational[49, 60] Pi, Rational[5, 6] Pi, Rational[17, 20] Pi, 
+         Rational[13, 15] Pi, Rational[53, 60] Pi, Rational[9, 10] Pi, 
+         Rational[11, 12] Pi, Rational[14, 15] Pi, Rational[19, 20] Pi, 
+         Rational[29, 30] Pi, Rational[59, 60] Pi, Pi, Rational[61, 60] Pi, 
+         Rational[31, 30] Pi, Rational[21, 20] Pi, Rational[16, 15] Pi, 
+         Rational[13, 12] Pi, Rational[11, 10] Pi, Rational[67, 60] Pi, 
+         Rational[17, 15] Pi, Rational[23, 20] Pi, Rational[7, 6] Pi, 
+         Rational[71, 60] Pi, Rational[6, 5] Pi, Rational[73, 60] Pi, 
+         Rational[37, 30] Pi, Rational[5, 4] Pi, Rational[19, 15] Pi, 
+         Rational[77, 60] Pi, Rational[13, 10] Pi, Rational[79, 60] Pi, 
+         Rational[4, 3] Pi, Rational[27, 20] Pi, Rational[41, 30] Pi, 
+         Rational[83, 60] Pi, Rational[7, 5] Pi, Rational[17, 12] Pi, 
+         Rational[43, 30] Pi, Rational[29, 20] Pi, Rational[22, 15] Pi, 
+         Rational[89, 60] Pi, Rational[3, 2] Pi, Rational[91, 60] Pi, 
+         Rational[23, 15] Pi, Rational[31, 20] Pi, Rational[47, 30] Pi, 
+         Rational[19, 12] Pi, Rational[8, 5] Pi, Rational[97, 60] Pi, 
+         Rational[49, 30] Pi, Rational[33, 20] Pi, Rational[5, 3] Pi, 
+         Rational[101, 60] Pi, Rational[17, 10] Pi, Rational[103, 60] Pi, 
+         Rational[26, 15] Pi, Rational[7, 4] Pi, Rational[53, 30] Pi, 
+         Rational[107, 60] Pi, Rational[9, 5] Pi, Rational[109, 60] Pi, 
+         Rational[11, 6] Pi, Rational[37, 20] Pi, Rational[28, 15] Pi, 
+         Rational[113, 60] Pi, Rational[19, 10] Pi, Rational[23, 12] Pi, 
+         Rational[29, 15] Pi, Rational[39, 20] Pi, Rational[59, 30] Pi, 
+         Rational[119, 60] Pi, 2 Pi, Rational[121, 60] Pi, Rational[61, 30] 
+         Pi, Rational[41, 20] Pi, Rational[31, 15] Pi, Rational[25, 12] Pi, 
+         Rational[21, 10] Pi, Rational[127, 60] Pi, Rational[32, 15] Pi, 
+         Rational[43, 20] Pi, Rational[13, 6] Pi, Rational[131, 60] Pi, 
+         Rational[11, 5] Pi, Rational[133, 60] Pi, Rational[67, 30] Pi, 
+         Rational[9, 4] Pi, Rational[34, 15] Pi, Rational[137, 60] Pi, 
+         Rational[23, 10] Pi, Rational[139, 60] Pi, Rational[7, 3] Pi, 
+         Rational[47, 20] Pi, Rational[71, 30] Pi, Rational[143, 60] Pi, 
+         Rational[12, 5] Pi, Rational[29, 12] Pi, Rational[73, 30] Pi, 
+         Rational[49, 20] Pi, Rational[37, 15] Pi, Rational[149, 60] Pi, 
+         Rational[5, 2] Pi, Rational[151, 60] Pi, Rational[38, 15] Pi, 
+         Rational[51, 20] Pi, Rational[77, 30] Pi, Rational[31, 12] Pi, 
+         Rational[13, 5] Pi, Rational[157, 60] Pi, Rational[79, 30] Pi, 
+         Rational[53, 20] Pi, Rational[8, 3] Pi, Rational[161, 60] Pi, 
+         Rational[27, 10] Pi, Rational[163, 60] Pi, Rational[41, 15] Pi, 
+         Rational[11, 4] Pi, Rational[83, 30] Pi, Rational[167, 60] Pi, 
+         Rational[14, 5] Pi, Rational[169, 60] Pi, Rational[17, 6] Pi, 
+         Rational[57, 20] Pi, Rational[43, 15] Pi, Rational[173, 60] Pi, 
+         Rational[29, 10] Pi, Rational[35, 12] Pi, Rational[44, 15] Pi, 
+         Rational[59, 20] Pi, Rational[89, 30] Pi, Rational[179, 60] Pi}}}, 
+      Typeset`size$$ = {156.93671941757202`, {38., 43.}}, Typeset`update$$ = 
+      0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+      DynamicBox[Manipulate`ManipulateBoxes[
+       1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
+        "ControllerVariables" :> {}, 
+        "OtherVariables" :> {
+         Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+          Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+          Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+          Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> Show[
+          Graphics3D[
+           Rotate[$CellContext`cubeClosed, $CellContext`t$$, 
+            Part[
+             IdentityMatrix[3], 1 + Quotient[$CellContext`t$$, 2 Pi]], {1, 1, 
+             1}/2], Lighting -> "Neutral", SphericalRegion -> True, 
+           PlotRange -> {{(-1)/2, 3/2}, {(-1)/2, 3/2}, {(-1)/2, 3/2}}, Boxed -> 
+           False, Background -> $CellContext`backgroundImage], 
+          EmitSound[$CellContext`sound]], 
+        "Specifications" :> {{$CellContext`t$$, {
+           0, Rational[1, 60] Pi, Rational[1, 30] Pi, Rational[1, 20] Pi, 
+            Rational[1, 15] Pi, Rational[1, 12] Pi, Rational[1, 10] Pi, 
+            Rational[7, 60] Pi, Rational[2, 15] Pi, Rational[3, 20] Pi, 
+            Rational[1, 6] Pi, Rational[11, 60] Pi, Rational[1, 5] Pi, 
+            Rational[13, 60] Pi, Rational[7, 30] Pi, Rational[1, 4] Pi, 
+            Rational[4, 15] Pi, Rational[17, 60] Pi, Rational[3, 10] Pi, 
+            Rational[19, 60] Pi, Rational[1, 3] Pi, Rational[7, 20] Pi, 
+            Rational[11, 30] Pi, Rational[23, 60] Pi, Rational[2, 5] Pi, 
+            Rational[5, 12] Pi, Rational[13, 30] Pi, Rational[9, 20] Pi, 
+            Rational[7, 15] Pi, Rational[29, 60] Pi, Rational[1, 2] Pi, 
+            Rational[31, 60] Pi, Rational[8, 15] Pi, Rational[11, 20] Pi, 
+            Rational[17, 30] Pi, Rational[7, 12] Pi, Rational[3, 5] Pi, 
+            Rational[37, 60] Pi, Rational[19, 30] Pi, Rational[13, 20] Pi, 
+            Rational[2, 3] Pi, Rational[41, 60] Pi, Rational[7, 10] Pi, 
+            Rational[43, 60] Pi, Rational[11, 15] Pi, Rational[3, 4] Pi, 
+            Rational[23, 30] Pi, Rational[47, 60] Pi, Rational[4, 5] Pi, 
+            Rational[49, 60] Pi, Rational[5, 6] Pi, Rational[17, 20] Pi, 
+            Rational[13, 15] Pi, Rational[53, 60] Pi, Rational[9, 10] Pi, 
+            Rational[11, 12] Pi, Rational[14, 15] Pi, Rational[19, 20] Pi, 
+            Rational[29, 30] Pi, Rational[59, 60] Pi, Pi, Rational[61, 60] Pi,
+             Rational[31, 30] Pi, Rational[21, 20] Pi, Rational[16, 15] Pi, 
+            Rational[13, 12] Pi, Rational[11, 10] Pi, Rational[67, 60] Pi, 
+            Rational[17, 15] Pi, Rational[23, 20] Pi, Rational[7, 6] Pi, 
+            Rational[71, 60] Pi, Rational[6, 5] Pi, Rational[73, 60] Pi, 
+            Rational[37, 30] Pi, Rational[5, 4] Pi, Rational[19, 15] Pi, 
+            Rational[77, 60] Pi, Rational[13, 10] Pi, Rational[79, 60] Pi, 
+            Rational[4, 3] Pi, Rational[27, 20] Pi, Rational[41, 30] Pi, 
+            Rational[83, 60] Pi, Rational[7, 5] Pi, Rational[17, 12] Pi, 
+            Rational[43, 30] Pi, Rational[29, 20] Pi, Rational[22, 15] Pi, 
+            Rational[89, 60] Pi, Rational[3, 2] Pi, Rational[91, 60] Pi, 
+            Rational[23, 15] Pi, Rational[31, 20] Pi, Rational[47, 30] Pi, 
+            Rational[19, 12] Pi, Rational[8, 5] Pi, Rational[97, 60] Pi, 
+            Rational[49, 30] Pi, Rational[33, 20] Pi, Rational[5, 3] Pi, 
+            Rational[101, 60] Pi, Rational[17, 10] Pi, Rational[103, 60] Pi, 
+            Rational[26, 15] Pi, Rational[7, 4] Pi, Rational[53, 30] Pi, 
+            Rational[107, 60] Pi, Rational[9, 5] Pi, Rational[109, 60] Pi, 
+            Rational[11, 6] Pi, Rational[37, 20] Pi, Rational[28, 15] Pi, 
+            Rational[113, 60] Pi, Rational[19, 10] Pi, Rational[23, 12] Pi, 
+            Rational[29, 15] Pi, Rational[39, 20] Pi, Rational[59, 30] Pi, 
+            Rational[119, 60] Pi, 2 Pi, Rational[121, 60] Pi, 
+            Rational[61, 30] Pi, Rational[41, 20] Pi, Rational[31, 15] Pi, 
+            Rational[25, 12] Pi, Rational[21, 10] Pi, Rational[127, 60] Pi, 
+            Rational[32, 15] Pi, Rational[43, 20] Pi, Rational[13, 6] Pi, 
+            Rational[131, 60] Pi, Rational[11, 5] Pi, Rational[133, 60] Pi, 
+            Rational[67, 30] Pi, Rational[9, 4] Pi, Rational[34, 15] Pi, 
+            Rational[137, 60] Pi, Rational[23, 10] Pi, Rational[139, 60] Pi, 
+            Rational[7, 3] Pi, Rational[47, 20] Pi, Rational[71, 30] Pi, 
+            Rational[143, 60] Pi, Rational[12, 5] Pi, Rational[29, 12] Pi, 
+            Rational[73, 30] Pi, Rational[49, 20] Pi, Rational[37, 15] Pi, 
+            Rational[149, 60] Pi, Rational[5, 2] Pi, Rational[151, 60] Pi, 
+            Rational[38, 15] Pi, Rational[51, 20] Pi, Rational[77, 30] Pi, 
+            Rational[31, 12] Pi, Rational[13, 5] Pi, Rational[157, 60] Pi, 
+            Rational[79, 30] Pi, Rational[53, 20] Pi, Rational[8, 3] Pi, 
+            Rational[161, 60] Pi, Rational[27, 10] Pi, Rational[163, 60] Pi, 
+            Rational[41, 15] Pi, Rational[11, 4] Pi, Rational[83, 30] Pi, 
+            Rational[167, 60] Pi, Rational[14, 5] Pi, Rational[169, 60] Pi, 
+            Rational[17, 6] Pi, Rational[57, 20] Pi, Rational[43, 15] Pi, 
+            Rational[173, 60] Pi, Rational[29, 10] Pi, Rational[35, 12] Pi, 
+            Rational[44, 15] Pi, Rational[59, 20] Pi, Rational[89, 30] Pi, 
+            Rational[179, 60] Pi}, 
+           AppearanceElements -> {
+            "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
+             "DirectionButton"}}}, 
+        "Options" :> {
+         ControlType -> Animator, AppearanceElements -> None, 
+          DefaultBaseStyle -> "Animate", DefaultLabelStyle -> "AnimateLabel", 
+          SynchronousUpdating -> True, ShrinkingDelay -> 10.}, 
+        "DefaultOptions" :> {}],
+       ImageSizeCache->{321., {70.92062992486171, 76.07937007513829}},
+       SingleEvaluation->True],
+      Deinitialization:>None,
+      DynamicModuleValues:>{},
+      SynchronousInitialization->True,
+      UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+      UnsavedVariables:>{Typeset`initDone$$},
+      UntrackedVariables:>{Typeset`size$$}], "Animate",
+     Deployed->True,
+     StripOnInput->False],
+    Manipulate`InterpretManipulate[1]], ",", 
+   TagBox[
+    StyleBox[
+     DynamicModuleBox[{$CellContext`t$$ = 11.676252695842065`, 
+      Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+      Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ =
+       1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+        Hold[$CellContext`t$$], {
+        3 Pi, Rational[181, 60] Pi, Rational[91, 30] Pi, Rational[61, 20] Pi, 
+         Rational[46, 15] Pi, Rational[37, 12] Pi, Rational[31, 10] Pi, 
+         Rational[187, 60] Pi, Rational[47, 15] Pi, Rational[63, 20] Pi, 
+         Rational[19, 6] Pi, Rational[191, 60] Pi, Rational[16, 5] Pi, 
+         Rational[193, 60] Pi, Rational[97, 30] Pi, Rational[13, 4] Pi, 
+         Rational[49, 15] Pi, Rational[197, 60] Pi, Rational[33, 10] Pi, 
+         Rational[199, 60] Pi, Rational[10, 3] Pi, Rational[67, 20] Pi, 
+         Rational[101, 30] Pi, Rational[203, 60] Pi, Rational[17, 5] Pi, 
+         Rational[41, 12] Pi, Rational[103, 30] Pi, Rational[69, 20] Pi, 
+         Rational[52, 15] Pi, Rational[209, 60] Pi, Rational[7, 2] Pi, 
+         Rational[211, 60] Pi, Rational[53, 15] Pi, Rational[71, 20] Pi, 
+         Rational[107, 30] Pi, Rational[43, 12] Pi, Rational[18, 5] Pi, 
+         Rational[217, 60] Pi, Rational[109, 30] Pi, Rational[73, 20] Pi, 
+         Rational[11, 3] Pi, Rational[221, 60] Pi, Rational[37, 10] Pi, 
+         Rational[223, 60] Pi, Rational[56, 15] Pi, Rational[15, 4] Pi, 
+         Rational[113, 30] Pi, Rational[227, 60] Pi, Rational[19, 5] Pi, 
+         Rational[229, 60] Pi, Rational[23, 6] Pi, Rational[77, 20] Pi, 
+         Rational[58, 15] Pi, Rational[233, 60] Pi, Rational[39, 10] Pi, 
+         Rational[47, 12] Pi, Rational[59, 15] Pi, Rational[79, 20] Pi, 
+         Rational[119, 30] Pi, Rational[239, 60] Pi, 4 Pi, Rational[241, 60] 
+         Pi, Rational[121, 30] Pi, Rational[81, 20] Pi, Rational[61, 15] Pi, 
+         Rational[49, 12] Pi, Rational[41, 10] Pi, Rational[247, 60] Pi, 
+         Rational[62, 15] Pi, Rational[83, 20] Pi, Rational[25, 6] Pi, 
+         Rational[251, 60] Pi, Rational[21, 5] Pi, Rational[253, 60] Pi, 
+         Rational[127, 30] Pi, Rational[17, 4] Pi, Rational[64, 15] Pi, 
+         Rational[257, 60] Pi, Rational[43, 10] Pi, Rational[259, 60] Pi, 
+         Rational[13, 3] Pi, Rational[87, 20] Pi, Rational[131, 30] Pi, 
+         Rational[263, 60] Pi, Rational[22, 5] Pi, Rational[53, 12] Pi, 
+         Rational[133, 30] Pi, Rational[89, 20] Pi, Rational[67, 15] Pi, 
+         Rational[269, 60] Pi, Rational[9, 2] Pi, Rational[271, 60] Pi, 
+         Rational[68, 15] Pi, Rational[91, 20] Pi, Rational[137, 30] Pi, 
+         Rational[55, 12] Pi, Rational[23, 5] Pi, Rational[277, 60] Pi, 
+         Rational[139, 30] Pi, Rational[93, 20] Pi, Rational[14, 3] Pi, 
+         Rational[281, 60] Pi, Rational[47, 10] Pi, Rational[283, 60] Pi, 
+         Rational[71, 15] Pi, Rational[19, 4] Pi, Rational[143, 30] Pi, 
+         Rational[287, 60] Pi, Rational[24, 5] Pi, Rational[289, 60] Pi, 
+         Rational[29, 6] Pi, Rational[97, 20] Pi, Rational[73, 15] Pi, 
+         Rational[293, 60] Pi, Rational[49, 10] Pi, Rational[59, 12] Pi, 
+         Rational[74, 15] Pi, Rational[99, 20] Pi, Rational[149, 30] Pi, 
+         Rational[299, 60] Pi, 5 Pi, Rational[301, 60] Pi, Rational[151, 30] 
+         Pi, Rational[101, 20] Pi, Rational[76, 15] Pi, Rational[61, 12] Pi, 
+         Rational[51, 10] Pi, Rational[307, 60] Pi, Rational[77, 15] Pi, 
+         Rational[103, 20] Pi, Rational[31, 6] Pi, Rational[311, 60] Pi, 
+         Rational[26, 5] Pi, Rational[313, 60] Pi, Rational[157, 30] Pi, 
+         Rational[21, 4] Pi, Rational[79, 15] Pi, Rational[317, 60] Pi, 
+         Rational[53, 10] Pi, Rational[319, 60] Pi, Rational[16, 3] Pi, 
+         Rational[107, 20] Pi, Rational[161, 30] Pi, Rational[323, 60] Pi, 
+         Rational[27, 5] Pi, Rational[65, 12] Pi, Rational[163, 30] Pi, 
+         Rational[109, 20] Pi, Rational[82, 15] Pi, Rational[329, 60] Pi, 
+         Rational[11, 2] Pi, Rational[331, 60] Pi, Rational[83, 15] Pi, 
+         Rational[111, 20] Pi, Rational[167, 30] Pi, Rational[67, 12] Pi, 
+         Rational[28, 5] Pi, Rational[337, 60] Pi, Rational[169, 30] Pi, 
+         Rational[113, 20] Pi, Rational[17, 3] Pi, Rational[341, 60] Pi, 
+         Rational[57, 10] Pi, Rational[343, 60] Pi, Rational[86, 15] Pi, 
+         Rational[23, 4] Pi, Rational[173, 30] Pi, Rational[347, 60] Pi, 
+         Rational[29, 5] Pi, Rational[349, 60] Pi, Rational[35, 6] Pi, 
+         Rational[117, 20] Pi, Rational[88, 15] Pi, Rational[353, 60] Pi, 
+         Rational[59, 10] Pi, Rational[71, 12] Pi, Rational[89, 15] Pi, 
+         Rational[119, 20] Pi, Rational[179, 30] Pi, Rational[359, 60] Pi}}}, 
+      Typeset`size$$ = {324., {160., 164.}}, Typeset`update$$ = 0, 
+      Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+      DynamicBox[Manipulate`ManipulateBoxes[
+       1, StandardForm, "Variables" :> {$CellContext`t$$ = 3 Pi}, 
+        "ControllerVariables" :> {}, 
+        "OtherVariables" :> {
+         Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+          Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+          Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+          Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> Show[
+          Graphics3D[
+           Rotate[$CellContext`cubeOpen, $CellContext`t$$ - 3 Pi, 
+            Part[
+             IdentityMatrix[3], 1 + 
+             Quotient[$CellContext`t$$ - 3 Pi, 2 Pi]], {1, 1, 1}/2], Lighting -> 
+           "Neutral", SphericalRegion -> True, 
+           PlotRange -> {{(-1)/2 - ($CellContext`t$$ - 3)/10, 
+              3/2 + ($CellContext`t$$ - 3)/10}, {(-1)/2 - ($CellContext`t$$ - 
+               3)/10, 3/2 + ($CellContext`t$$ - 3)/10}, {(-1)/
+               2 - ($CellContext`t$$ - 3)/10, 
+              3/2 + ($CellContext`t$$ - 3)/10}}, Boxed -> False, 
+           Background -> $CellContext`backgroundImage]], 
+        "Specifications" :> {{$CellContext`t$$, {
+           3 Pi, Rational[181, 60] Pi, Rational[91, 30] Pi, Rational[61, 20] 
+            Pi, Rational[46, 15] Pi, Rational[37, 12] Pi, Rational[31, 10] Pi,
+             Rational[187, 60] Pi, Rational[47, 15] Pi, Rational[63, 20] Pi, 
+            Rational[19, 6] Pi, Rational[191, 60] Pi, Rational[16, 5] Pi, 
+            Rational[193, 60] Pi, Rational[97, 30] Pi, Rational[13, 4] Pi, 
+            Rational[49, 15] Pi, Rational[197, 60] Pi, Rational[33, 10] Pi, 
+            Rational[199, 60] Pi, Rational[10, 3] Pi, Rational[67, 20] Pi, 
+            Rational[101, 30] Pi, Rational[203, 60] Pi, Rational[17, 5] Pi, 
+            Rational[41, 12] Pi, Rational[103, 30] Pi, Rational[69, 20] Pi, 
+            Rational[52, 15] Pi, Rational[209, 60] Pi, Rational[7, 2] Pi, 
+            Rational[211, 60] Pi, Rational[53, 15] Pi, Rational[71, 20] Pi, 
+            Rational[107, 30] Pi, Rational[43, 12] Pi, Rational[18, 5] Pi, 
+            Rational[217, 60] Pi, Rational[109, 30] Pi, Rational[73, 20] Pi, 
+            Rational[11, 3] Pi, Rational[221, 60] Pi, Rational[37, 10] Pi, 
+            Rational[223, 60] Pi, Rational[56, 15] Pi, Rational[15, 4] Pi, 
+            Rational[113, 30] Pi, Rational[227, 60] Pi, Rational[19, 5] Pi, 
+            Rational[229, 60] Pi, Rational[23, 6] Pi, Rational[77, 20] Pi, 
+            Rational[58, 15] Pi, Rational[233, 60] Pi, Rational[39, 10] Pi, 
+            Rational[47, 12] Pi, Rational[59, 15] Pi, Rational[79, 20] Pi, 
+            Rational[119, 30] Pi, Rational[239, 60] Pi, 4 Pi, 
+            Rational[241, 60] Pi, Rational[121, 30] Pi, Rational[81, 20] Pi, 
+            Rational[61, 15] Pi, Rational[49, 12] Pi, Rational[41, 10] Pi, 
+            Rational[247, 60] Pi, Rational[62, 15] Pi, Rational[83, 20] Pi, 
+            Rational[25, 6] Pi, Rational[251, 60] Pi, Rational[21, 5] Pi, 
+            Rational[253, 60] Pi, Rational[127, 30] Pi, Rational[17, 4] Pi, 
+            Rational[64, 15] Pi, Rational[257, 60] Pi, Rational[43, 10] Pi, 
+            Rational[259, 60] Pi, Rational[13, 3] Pi, Rational[87, 20] Pi, 
+            Rational[131, 30] Pi, Rational[263, 60] Pi, Rational[22, 5] Pi, 
+            Rational[53, 12] Pi, Rational[133, 30] Pi, Rational[89, 20] Pi, 
+            Rational[67, 15] Pi, Rational[269, 60] Pi, Rational[9, 2] Pi, 
+            Rational[271, 60] Pi, Rational[68, 15] Pi, Rational[91, 20] Pi, 
+            Rational[137, 30] Pi, Rational[55, 12] Pi, Rational[23, 5] Pi, 
+            Rational[277, 60] Pi, Rational[139, 30] Pi, Rational[93, 20] Pi, 
+            Rational[14, 3] Pi, Rational[281, 60] Pi, Rational[47, 10] Pi, 
+            Rational[283, 60] Pi, Rational[71, 15] Pi, Rational[19, 4] Pi, 
+            Rational[143, 30] Pi, Rational[287, 60] Pi, Rational[24, 5] Pi, 
+            Rational[289, 60] Pi, Rational[29, 6] Pi, Rational[97, 20] Pi, 
+            Rational[73, 15] Pi, Rational[293, 60] Pi, Rational[49, 10] Pi, 
+            Rational[59, 12] Pi, Rational[74, 15] Pi, Rational[99, 20] Pi, 
+            Rational[149, 30] Pi, Rational[299, 60] Pi, 5 Pi, 
+            Rational[301, 60] Pi, Rational[151, 30] Pi, Rational[101, 20] Pi, 
+            Rational[76, 15] Pi, Rational[61, 12] Pi, Rational[51, 10] Pi, 
+            Rational[307, 60] Pi, Rational[77, 15] Pi, Rational[103, 20] Pi, 
+            Rational[31, 6] Pi, Rational[311, 60] Pi, Rational[26, 5] Pi, 
+            Rational[313, 60] Pi, Rational[157, 30] Pi, Rational[21, 4] Pi, 
+            Rational[79, 15] Pi, Rational[317, 60] Pi, Rational[53, 10] Pi, 
+            Rational[319, 60] Pi, Rational[16, 3] Pi, Rational[107, 20] Pi, 
+            Rational[161, 30] Pi, Rational[323, 60] Pi, Rational[27, 5] Pi, 
+            Rational[65, 12] Pi, Rational[163, 30] Pi, Rational[109, 20] Pi, 
+            Rational[82, 15] Pi, Rational[329, 60] Pi, Rational[11, 2] Pi, 
+            Rational[331, 60] Pi, Rational[83, 15] Pi, Rational[111, 20] Pi, 
+            Rational[167, 30] Pi, Rational[67, 12] Pi, Rational[28, 5] Pi, 
+            Rational[337, 60] Pi, Rational[169, 30] Pi, Rational[113, 20] Pi, 
+            Rational[17, 3] Pi, Rational[341, 60] Pi, Rational[57, 10] Pi, 
+            Rational[343, 60] Pi, Rational[86, 15] Pi, Rational[23, 4] Pi, 
+            Rational[173, 30] Pi, Rational[347, 60] Pi, Rational[29, 5] Pi, 
+            Rational[349, 60] Pi, Rational[35, 6] Pi, Rational[117, 20] Pi, 
+            Rational[88, 15] Pi, Rational[353, 60] Pi, Rational[59, 10] Pi, 
+            Rational[71, 12] Pi, Rational[89, 15] Pi, Rational[119, 20] Pi, 
+            Rational[179, 30] Pi, Rational[359, 60] Pi}, 
+           AppearanceElements -> {
+            "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
+             "DirectionButton"}}}, 
+        "Options" :> {
+         ControlType -> Animator, AppearanceElements -> None, 
+          DefaultBaseStyle -> "Animate", DefaultLabelStyle -> "AnimateLabel", 
+          SynchronousUpdating -> True, ShrinkingDelay -> 10.}, 
+        "DefaultOptions" :> {}],
+       ImageSizeCache->{367., {192.92062992486171`, 198.07937007513829`}},
+       SingleEvaluation->True],
+      Deinitialization:>None,
+      DynamicModuleValues:>{},
+      SynchronousInitialization->True,
+      UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+      UnsavedVariables:>{Typeset`initDone$$},
+      UntrackedVariables:>{Typeset`size$$}], "Animate",
+     Deployed->True,
+     StripOnInput->False],
+    Manipulate`InterpretManipulate[1]]}], "]"}]], "Output",
+ CellChangeTimes->{3.896305206539669*^9},
+ CellLabel->"Out[93]=",ExpressionUUID->"a11d2201-4ce0-4c1b-b836-03d0e8ce9019"]
+}, Open  ]]
+},
+WindowSize->{1440., 741.75},
+WindowMargins->{{1122, Automatic}, {Automatic, -6}},
+Magnification:>0.9 Inherited,
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"92f5add9-e7b7-4cc7-ac20-d5f4ee752ff7"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1215, 34, 112, "Input",ExpressionUUID->"5251dd6f-caf3-4124-b5b5-53ca5ad4d572"],
+Cell[CellGroupData[{
+Cell[1798, 58, 4706, 137, 129, "Input",ExpressionUUID->"a8e51315-134c-4407-8714-cdb359d540b2"],
+Cell[6507, 197, 8620, 114, 30, "Message",ExpressionUUID->"c814d521-fa59-415b-ac57-90c42fafd875"],
+Cell[15130, 313, 8612, 115, 30, "Message",ExpressionUUID->"9f03809c-3aad-4e13-9609-3dad5465b215"]
+}, Open  ]],
+Cell[23757, 431, 7478, 197, 404, "Input",ExpressionUUID->"a06ae2f7-9762-419c-9d50-5aeacc10fad6"],
+Cell[CellGroupData[{
+Cell[31260, 632, 11197, 289, 414, "Input",ExpressionUUID->"8c278331-a69a-43f2-a0ed-11b62d65d0dd"],
+Cell[42460, 923, 19520, 286, 408, "Output",ExpressionUUID->"55bddbd7-c346-44bc-8fc4-ef408c2d5e27"],
+Cell[61983, 1211, 237, 4, 30, "Output",ExpressionUUID->"b1dade13-11ec-4d10-a6a6-14d86a19a4fb"]
+}, Open  ]],
+Cell[62235, 1218, 9491, 253, 619, "Input",ExpressionUUID->"da859aba-91a8-4e5a-9522-f38f872c08fe"],
+Cell[CellGroupData[{
+Cell[71751, 1475, 11266, 263, 438, "Input",ExpressionUUID->"969a319c-799d-4e23-9f22-c47f94353c82"],
+Cell[83020, 1740, 714, 14, 26, "Message",ExpressionUUID->"013ea76f-5b81-4938-9616-135b8d1b069e"]
+}, Open  ]],
+Cell[83749, 1757, 255, 5, 94, "Input",ExpressionUUID->"99e92592-ede0-47e6-b001-26989b90e260"],
+Cell[CellGroupData[{
+Cell[84029, 1766, 9194, 256, 473, "Input",ExpressionUUID->"a0c53123-a56d-4190-bdd6-224803868c28"],
+Cell[93226, 2024, 565, 12, 26, "Message",ExpressionUUID->"5245062f-1abd-43ba-8d47-4cc9662d3e93"],
+Cell[93794, 2038, 427, 10, 26, "Message",ExpressionUUID->"18add2d6-46a8-4d29-aeff-f37ec5e88b09"],
+Cell[94224, 2050, 4436, 65, 61, "Message",ExpressionUUID->"d37c209a-d368-4518-8037-926bbfe6b980"],
+Cell[98663, 2117, 6213, 95, 398, "Message",ExpressionUUID->"1bc5e8d8-cd71-4216-bdcd-81323b8f7fe3"],
+Cell[104879, 2214, 22590, 336, 408, "Output",ExpressionUUID->"a11d2201-4ce0-4c1b-b836-03d0e8ce9019"]
+}, Open  ]]
+}
+]
+*)
+
